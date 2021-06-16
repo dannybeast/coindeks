@@ -1,0 +1,58 @@
++b.FOOTER.footer 
+    .container 
+        +e.top 
+            +e.top-col 
+                +e.A(href="profile-account.html" class="logo")
+                    img(src="assets/images/logo/logo-light.svg", alt="")
+
+            +e.top-col 
+                include ./_lang
+
+          
+                +b.A(href="profile-account.html" class="btn --yellow --small")
+                    +icon('user')
+                    span Username123   
+
+        +b.footer-profile-row 
+            +e.col
+                
+                +b.UL.footer__nav 
+                    +e.LI(class=( pageName === "index" ? " is-active" : undefined))
+                        +e.A(href="index.html") Home
+                    +e.LI(class=( pageName === "referral" ? " is-active" : undefined)) 
+                        +e.A(href="referral.html") Referral Program
+                    +e.LI(class=( pageName === "about" ? " is-active" : undefined)) 
+                        +e.A(href="about.html") About Us 		
+            +e.col
+                +b.UL.footer__nav(class="--strong")
+                    +e.LI(class=( pageName === "deposits" ? " is-active" : undefined))
+                        +e.A(href="profile-deposits.html") Deposits
+                    +e.LI(class=( pageName === "withdraw" ? " is-active" : undefined)) 
+                        +e.A(href="profile-withdraw.html") Withdraw
+                    +e.LI(class=( pageName === "referral-program" ? " is-active" : undefined)) 
+                        +e.A(href="profile-referral.html") Referral	program
+                    +e.LI(class=( pageName === "settings" ? " is-active" : undefined)) 
+                        +e.A(href="profile-settings.html") Settings	
+
+            +e.col
+                +e.P.copyright © <span class="js-current-year"></span>,<br> ybot trade <br> All rights reserved
+            
+            +e.col
+                +b.follow 
+                    +e.UL
+                        +e.LI
+                            +e.A(href="#" target="_blank")
+                                svg.svg-icon
+                                    use(href='assets/icons/sprite.svg#icon-twitter')
+                        +e.LI
+                            +e.A(href="#" target="_blank")
+                                svg.svg-icon
+                                    use(href='assets/icons/sprite.svg#icon-youtube')
+                        +e.LI
+                            +e.A(href="#" target="_blank")
+                                svg.svg-icon
+                                    use(href='assets/icons/sprite.svg#icon-telegram')
+
+            
+                    
+

@@ -1,0 +1,214 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Coindeks';
+    - var description = '';
+    - var pageName = 'index';
+
+block content
+
+  //
+  +b.SECTION.intro(style="background-image: url('assets/images/intro/bg.png')")
+    .container.container-large
+      +e.row 
+
+        +e.col 
+          +e.col-content
+            +b.H3.title(class="--after --center") DeFi Staking
+
+            +e.description 
+              p 
+                big More than 15 cryptocurrencies are available for staking Earn <strong>up to 400%</strong> per annum on stacking 
+              p Send the coins to the stack and get a <strong class="color-primary">70 USDT bonus</strong>
+            
+            +b.A(href="#" class="btn --primary") Learn more
+
+        +e.col 
+          +e.col-content
+            +b.H3.title(class="--after --center") Token sale
+            +b.H5.subtitle 2 Round
+            +b.token-group 
+              img(src="assets/images/token-group/1.png", alt="")
+              img(src="assets/images/token-group/2.png", alt="")
+              img(src="assets/images/token-group/3.png", alt="")
+            +e.description 
+              p Send the coins to the stack and get a <strong class="color-primary">70 USDT bonus</strong>
+            
+            +b.A(href="#" class="btn --white") Go to token sale
+
+  //
+  +b.SECTION.users-reviews
+    .container.container-large
+      +b.H3.title(class="--after --center --small") Users reviews
+      +e.row 
+        +e.trust 
+          img(src="assets/images/trust.png", alt="")
+        +e.UL.logos 
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/1.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/2.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/3.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/4.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/5.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/6.png", alt="")
+          +e.LI 
+            +e.A(href="#")
+              img(src="assets/images/logos/7.png", alt="")
+
+      +b.page-buttons 
+        +b.A(href="#" class="btn --line-primary") Read more
+
+  //
+  +b.SECTION.what-coindeks
+    .container
+      +b.H3.title(class="--after --center") What is the Coindeks.com
+
+      +b.page-description 
+        p Coindesks.com is an innovative cryptocurrency platform that includes several sought-after investment products, such as:
+
+      +e.slider
+        .swiper-container.js-what-slider.swiper-no-swiping
+          .swiper-wrapper
+
+            .swiper-slide 
+              +b.what-item 
+                +e.P.count 01
+                +e.icon 
+                  +icon('002-cryptocurrency')
+                +e.P.name Defi<br> staking
+
+            .swiper-slide 
+              +b.what-item 
+                +e.P.count 02
+                +e.icon 
+                  +icon('001-exchange')
+                +e.P.name Decentralized<br> Exchange
+
+            .swiper-slide 
+              +b.what-item 
+                +e.P.count 03
+                +e.icon 
+                  +icon('003-chip')
+                +e.P.name NFT<br> marketplace
+
+            .swiper-slide 
+              +b.what-item 
+                +e.P.count 04
+                +e.icon 
+                  +icon('004-discount')
+                +e.P.name Crypto<br> credit
+
+      +b.page-buttons 
+        +b.A(href="#" class="btn --line-gray") Read more
+  
+  //
+  +b.SECTION.road-map.background-gray
+    .container
+      +b.H3.title(class="--after --center") Road map of the Coindeks
+
+
+
+  //
+  +b.SECTION.blog-coindeks
+    .container
+      +e.row
+        +e.col-left
+          +b.H3.title Blog of the Coindeks
+          +b.A(href="#" class="btn --line-primary") Read more
+        
+        +e.col-right 
+
+          //
+          +b.quote 
+            +e.H4.title Secure, Manage, and Exchange cryptocurrency on desktop, mobile and hardware wallets.
+            +e.description
+              p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone.
+          //
+          +b.quote 
+            +e.H4.title Exchange cryptocurrency on desktop
+            +e.description
+              p From pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone.
+
+
+  //
+  +b.SECTION.video-reviews
+    mixin review-block(src, title, icon)
+      +b.reviews-block
+            +e.top
+              +e.H3.title #{title}
+              +e.icon
+                img(src=icon, alt="")
+            +e.slider
+
+              +e.arrow-left(ref="prev")
+                +icon('001-right-arrow')
+
+              +e.arrow-right(ref="next")
+                +icon('001-right-arrow')
+
+              .swiper-container.js-reviews-slider
+                .swiper-wrapper
+                  .swiper-slide 
+                    +b.A(href="https://youtu.be/PoJ7wa1_IgE" data-fancybox).review-video
+                      +e.wrapper
+                        img(src=src, alt="")
+                  .swiper-slide 
+                    +b.A(href="https://youtu.be/PoJ7wa1_IgE" data-fancybox).review-video
+                      +e.wrapper
+                        img(src=src, alt="")
+            +e.content
+              +e.P.name Username 
+              +e.description
+                p Exodus enables consumers to manage many forms to many forms manage 
+    .container
+      +e.top
+        +b.H3.title Video reviews
+      
+      +e.row
+        +e.col
+          +review-block('https://www.fillmurray.com/254/169', 'Reviews on English', 'assets/images/country/united-kingdom.svg')
+        +e.col
+          +review-block('https://www.fillmurray.com/254/169', 'Reviews on Deuch', 'assets/images/country/germany.svg')
+        +e.col
+          +review-block('https://www.fillmurray.com/254/169', 'Reviews on Spanish', 'assets/images/country/spain.svg')
+  //
+  +b.SECTION.faq.background-primary-light
+    mixin faq-item(title)
+      +e.LI.item
+        +e.H4.title(data-accordion="trigger") 
+          span #{title}
+        div(data-accordion='content-container')
+          +e.content(data-accordion="content").typography
+            p Exodus enables consumers to manage many forms of cryptocurrency in a non-custodial interface. With cryptocurrency reaching all-time highs, we are taking action to accelerate our growth. Exodus is already performing well. Going forward, we plan to invest even more in the expansion of our platform, including on product, security, and customer service teams, while accelerating growth by significantly increasing our marketing efforts to attract additional users to our platform. We are excited about our future.
+
+    .container
+      +b.H3.title.text-center FAQ
+
+      +b.UL.accordion
+        +faq-item('What is happening?')
+        +faq-item('Why might I be interested in being part of Exodus’ growth?')
+        +faq-item('Can I buy or trade shares of Exodus’ Class A common stock right now?')
+        +faq-item('When will the EXIT tokens I purchased be distributed?')
+        +faq-item('Who is Securitize?')
+        +faq-item('Why do I need to KYC to participate?')
+        +faq-item('How do I delete my KYC?')
+        +faq-item('Where will the shares trade?')
+        +faq-item('I am located internationally, can I buy?')
+        +faq-item('Can I buy or trade shares of Exodus’ Class A common stock right now?')
+        +faq-item('When will the EXIT tokens I purchased be distributed?')
+
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

@@ -1,0 +1,118 @@
+.banner {
+ color: #000;
+ position: relative;
+ display: block;
+ $parent: &;
+ &__content {
+  position: absolute;
+ }
+ &__title {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 40px;
+  line-height: 1;
+  @include to(1250px) {
+   font-size: 3vw;
+   margin-bottom: 1.5vw;
+  }
+  @include md-block() {
+   font-size: 4.3vw;
+  }
+  @include sm-block() {
+   font-size: 4.8vw;
+  }
+ }
+ &__desc {
+  font-size: 12px;
+  display: block;
+  @include sm-block() {
+   font-size: 11px;
+  }
+ }
+ &:hover {
+  color: #000;
+ }
+ &-1 {
+  #{$parent}__content {
+   left: 6%;
+   top: 27%;
+   max-width: 190px;
+   @include sm-block() {
+    max-width: 34vw;
+   }
+  }
+ }
+ &-2 {
+  #{$parent}__title {
+   span {
+    display: block;
+   }
+  }
+  #{$parent}__content {
+   right: 8%;
+   top: 35%;
+   color: #fff;
+   max-width: 190px;
+   @include sm-block() {
+    top: 30%;
+    max-width: 35vw;
+   }
+  }
+ }
+ &-3 {
+  #{$parent}__title {
+   span {
+    display: block;
+   }
+  }
+  #{$parent}__desc {
+   max-width: 300px;
+  }
+  #{$parent}__content {
+   left: 6%;
+   top: 27%;
+   max-width: 350px;
+   @include sm-block() {
+    max-width: 50vw;
+   }
+  }
+ }
+ &-4 {
+  #{$parent}__title {
+   span {
+    display: block;
+   }
+  }
+  #{$parent}__desc {
+   max-width: 300px;
+  }
+  #{$parent}__content {
+   left: 6%;
+   top: 27%;
+   max-width: 250px;
+   @include sm-block() {
+    max-width: 39vw;
+   }
+   @include xs-block() {
+    max-width: 42vw;
+   }
+  }
+ }
+
+ &-5 {
+  #{$parent}__title {
+   span {
+    display: block;
+   }
+  }
+  #{$parent}__content {
+   right: 5%;
+   top: 30%;
+   max-width: 160px;
+   @include sm-block() {
+    max-width: 32vw;
+   }
+  }
+ }
+}

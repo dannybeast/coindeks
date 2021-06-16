@@ -1,0 +1,103 @@
+.header {
+    background: rgba(#221837, 0.9);
+    position: relative;
+
+    .nav-button {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: transparent;
+        display: none;
+        width: 90px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        @include lg-block() {
+            display: flex;
+        }
+    }
+
+    &__logo {
+        display: block;
+        width: 100%;
+        max-width: 148px;
+        img {
+            width: 100%;
+        }
+    }
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        height: 100px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        .btn {
+            opacity: 0.8;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        & > * {
+            margin: 0 0 0 20px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+
+    .follow {
+        margin-right: auto;
+        margin-left: auto;
+        li {
+            margin-left: 15px;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        svg {
+            width: 17px;
+            height: 17px;
+        }
+    }
+
+    &__nav {
+        margin-right: auto;
+        margin-left: auto;
+
+        ul {
+            display: flex;
+            align-items: center;
+        }
+        li {
+            margin: 0 30px;
+            @include to(1370px) {
+                margin: 0 15px;
+            }
+            &.is-active {
+                a {
+                    color: #949494;
+                    border-color: $primary-color;
+                }
+            }
+        }
+        a {
+            display: block;
+            color: #fff;
+            opacity: 0.8;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 300;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

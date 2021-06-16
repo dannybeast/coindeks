@@ -1,0 +1,216 @@
+extends ../layout/profile
+
+block variables
+    - var title = 'Ybot.trade – Profile settings';
+    - var description = '';
+    - var pageName = 'withdraw';
+    - var pageType = 'profile';
+block content
+
+    form
+        +b.SECTION
+            .container
+                +b.H5.subtitle Ybot trade
+                +b.H1.title Withdraw funds 
+
+                +b.choose-currency 
+                    +e.H5.title Choose a currency:
+                    +e.block 
+                        ul
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="usdt" checked)
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/usdt.svg", alt="")
+                                            +e.P.name USDT
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="dai")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/dai.svg", alt="")
+                                            +e.P.name DAI
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="btc")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/btc.svg", alt="")
+                                            +e.P.name Bitcoin
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="eth")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/eth.svg", alt="")
+                                            +e.P.name Ethereum
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="xrp")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/xrp.svg", alt="")
+                                            +e.P.name XRP
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="doge")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/doge.svg", alt="")
+                                            +e.P.name Doge
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="ltc")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/ltc.svg", alt="")
+                                            +e.P.name Litecoin
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="uni")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/uni.svg", alt="")
+                                            +e.P.name Uniswap
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="link")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/link.svg", alt="")
+                                            +e.P.name Link
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="aave")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/aave.svg", alt="")
+                                            +e.P.name Aave
+                                        +e.right 
+                                            +e.P.value 0.0001
+                                            +e.bottom
+                                                p Min: 0.000500
+                                                p 0.00 USD
+        +b.SECTION
+            .container
+                +b.block-yellow
+
+                    +b.field(class="--horizontal --subtext")
+                        label Enter amount:
+                        input(type="number" name="amount" value="0.125")
+                        +e.P.subtext BTC
+
+                    +b.field(class="--horizontal")
+                        label Send to:
+                        input(type="text" name="address")
+
+                        +b.BUTTON( class="btn --black")
+                            span Withdraw funds
+                            +e.SPAN.icon-wrap
+                                +icon('001-right-arrow')
+    +b.SECTION
+        mixin tr(index)
+            tr
+                td 00#{index}
+                td Bitcoin
+                td
+                    strong 0.000123 BTC
+                td 12:33:22   01.01.2022
+                td
+                    +b.status(class="--success") Compleated
+            tr
+                td 00#{index}
+                td Bitcoin
+                td
+                    strong 0.000123 BTC
+                td 12:33:22   01.01.2022
+                td
+                    +b.status(class="--danger") Delayed
+            tr
+                td 00#{index}
+                td Bitcoin
+                td
+                    strong 0.000123 BTC
+                td 12:33:22   01.01.2022
+                td
+                    +b.status Canceled
+
+
+        .container
+            +b.H3.title(class="--small") Your Withdrawals List
+
+            +b.block.table-filter-hidden
+                table.js-datatables.responsive.nowrap(
+                    data-page-length="10" )
+                    thead
+                        tr
+                            th Num
+                            th Currency
+                            th Amount
+                            th Date
+                            th Status
+                    tbody
+                        each val in [1, 2, 3, 4, 5,6,7,8,9]
+                            +tr(val)
+
+
+
+block script
+    //-script(src="assets/js/vendors.js")
+    script(src="assets/js/app.js")

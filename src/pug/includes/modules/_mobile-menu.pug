@@ -1,0 +1,45 @@
+// Mobile menu
++b.mobile-menu
+    +e.top 
+        include ./_lang
+
+        if pageType != 'profile'
+            // If not auth
+            +b.A(href="login.html" class="btn --line-yellow --small")
+                +icon('key')
+                span Login
+
+            +b.A(href="register.html" class="btn --yellow --small")
+                +icon('user')
+                span Registration
+        else 
+            // If auth
+            +b.A(href="profile-account.html" class="btn --yellow --small")
+                +icon('user')
+                span Username123
+
+    if pageType === 'profile'
+        // If Auth
+        +e.NAV.nav 
+            +e.UL
+                +e.LI(class=( pageName === "deposits" ? " is-active" : undefined))
+                    +e.A(href="profile-deposits.html") Deposits
+                +e.LI(class=( pageName === "withdraw" ? " is-active" : undefined)) 
+                    +e.A(href="profile-withdraw.html") Withdraw
+                +e.LI(class=( pageName === "referral-program" ? " is-active" : undefined)) 
+                    +e.A(href="profile-referral.html") Referral	program
+                +e.LI(class=( pageName === "settings" ? " is-active" : undefined)) 
+                    +e.A(href="profile-settings.html") Settings	
+
+    +e.NAV.nav 
+        ul
+            li(class=( pageName === "index" ? " is-active" : undefined))
+                a(href="index.html") Home 
+            li(class=( pageName === "referral" ? " is-active" : undefined))
+                a(href="referral.html") Referral Program
+            li(class=( pageName === "about" ? " is-active" : undefined))
+                a(href="about.html") About Us  
+            li(class=( pageName === "faq" ? " is-active" : undefined))
+                a(href="faq.html") FAQ
+
+    include ./_social

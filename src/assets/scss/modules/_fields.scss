@@ -1,0 +1,241 @@
+// Field
+$textarea-height: $field-height * 2;
+$field-font-size: 16px;
+$field-border-radius: 12px;
+
+@mixin inputBase() {
+ border: solid 1px #efefef;
+ height: $field-height;
+ width: 100%;
+ font-size: $field-font-size;
+ border-radius: $field-border-radius;
+ background: #efefef;
+ padding-left: 15px;
+ font-weight: 500;
+ text-overflow: ellipsis;
+ color: #000;
+ transition: opacity .2s ease;
+ font-family: $mainFont;
+ &::placeholder {
+  color: rgba(#000, 0.5);
+  font-weight: 500;
+ }
+ &:hover,
+ &:focus {
+background: #ebebeb
+ }
+}
+@keyframes errorInput {
+ 0% {
+  transform: translateX(0);
+ }
+
+ 50% {
+  transform: translateX(-6px);
+ }
+
+ 100% {
+  transform: translateX(6px);
+ }
+}
+.field {
+ $parent: &;
+ & > label:not(.select) {
+  display: flex;
+  align-items: flex-end;
+  font-size: 17px;
+  line-height: 1.15;
+  margin-bottom: rem(10px);
+  font-weight: 400;
+  height: 18px;
+ }
+
+ input,
+ textarea {
+  @include inputBase();
+ }
+
+ & > textarea {
+  min-height: $textarea-height;
+  padding-top: 10px;
+  overflow: hidden;
+ }
+ &__error-message {
+  margin-top: 5px;
+  color: red;
+ }
+ &__group {
+  position: relative;
+  margin-bottom: 5px;
+  &:last-child {
+   margin-bottom: 0;
+  }
+ }
+ p {
+  font-size: 13px;
+  line-height: 1.2;
+ }
+ 
+ &--error {
+  label {
+   color: $danger-color;
+  }
+  input,
+  textarea {
+   border-color: $danger-color !important;
+   will-change: transform;
+   animation: errorInput 0.2s cubic-bezier(0.6, 0.2, 0.1, 1);
+  }
+ }
+
+ &__subtext{
+     text-transform: uppercase;
+     color:#c0c0c0;
+     position: absolute;
+   bottom: 12px;
+     right: 15px;
+     font-weight: 500;
+     font-size: 18px !important;
+
+ }
+
+&--material{
+    position: relative;
+    label:not(.select){
+        position: absolute;
+        top: 16px;
+        left: 0;
+        text-transform: uppercase;
+        font-size: 17px;
+        letter-spacing: 0.05em;
+        color:#999999;
+        font-weight: 500;
+        pointer-events: none;
+        transition: all .2s ease;
+    }
+    input{
+        background: transparent;
+        border-radius: 0;
+        border:none;
+        padding-top: 9px;
+        border-bottom: 2px solid #cccccc;
+        padding-left: 0;
+        &:hover,&:focus{
+            background: transparent;
+            border-color: darken(#ccc, 5%);
+            
+        }
+
+    }
+    &.active{
+      label{
+        transform: translateY(-20px);
+        font-size: 12px;
+      }
+    }
+    &.field--error{
+        label{
+            color:red;
+        }
+    }
+    
+}
+
+
+&--horizontal{
+    display: flex;
+    align-items: center;
+    position: relative;
+    
+
+    @include sm-block(){
+        flex-wrap: wrap;
+    }
+
+ input,
+ textarea {
+border-radius: 30px;
+padding-left: 20px;
+background: #fff;
+height: 45px;
+&:hover,&:focus{
+    background: #fff;
+    border-color:#ddd;
+}
+&[disabled]{
+    background: #e1e1e1;
+    border-color: #e1e1e1;
+}
+}
+    & > label:not(.select) {
+        margin: 0 !important;
+        flex-shrink: 0;
+        width: 180px;
+        font-size: 20px;
+        font-weight: 500;
+        @include sm-block(){
+        width: 100%;font-size: 16px;
+        margin-bottom: 10px !important;
+        }
+    }
+
+
+&.field--subtext{
+    input,textarea{
+        padding-right: 60px;
+    }
+}
+
+}
+
+}
+
+.select {
+ position: relative;
+ display: block;
+ cursor: pointer;
+ &:after {
+  content: "";
+  width: 9px;
+  height: 14px;
+  background: svg-load("../icons/arrow.svg", fill=#1a535c, stroke=#1a535c);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  margin-top: 2px;
+  pointer-events: none;
+ }
+ select {
+  @include inputBase();
+  text-overflow: ellipsis;
+  font-weight: 700;
+  padding-right: 35px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  outline: none;
+  &:-ms-expand {
+   display: none;
+  }
+  option {
+   font-size: 16px;
+   font-weight: 400;
+  }
+ }
+}
+//-
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+ -moz-appearance: textfield;
+}

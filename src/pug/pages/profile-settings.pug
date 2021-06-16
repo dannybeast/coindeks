@@ -1,0 +1,80 @@
+extends ../layout/profile
+
+block variables
+    - var title = 'Ybot.trade – Profile settings';
+    - var description = '';
+    - var pageName = 'settings';
+    - var pageType = 'profile';
+block content
+    form
+        +b.SECTION.form-section
+            .container
+                +b.H5.subtitle Ybot trade
+                +b.H1.title Settings 
+
+        
+                +b.field(class="--horizontal")
+                    label Your e-mail:
+                    input(type="text" name="email" disabled value="Username123@gmail.com")
+                +b.field(class="--horizontal")
+                    label Your login:
+                    input(type="text" name="login" disabled value="Username123")
+
+        +b.SECTION.form-section
+            .container
+                +b.H3.title(class="--small") Change Password 
+
+        
+                +b.field(class="--horizontal") 
+                    label Old password
+                    input(type="password" name="old_password")
+                +b.field(class="--horizontal") 
+                    label New password
+                    input(type="password" name="new_password")
+                +b.field(class="--horizontal") 
+                    label Once again
+                    input(type="password" name="repeat_password")
+
+        +b.SECTION.form-section
+            .container
+                +b.H3.title(class="--small") Your Payout Wallets
+
+                +b.field(class="--horizontal") 
+                    label USDT
+                    input(type="text" name="usdt")
+                +b.field(class="--horizontal") 
+                    label DAI
+                    input(type="text" name="dai")
+                +b.field(class="--horizontal") 
+                    label Bitcoin
+                    input(type="text" name="bitcoin")
+                +b.field(class="--horizontal") 
+                    label Ethereum
+                    input(type="text" name="ethereum")
+                +b.field(class="--horizontal") 
+                    label Xrp
+                    input(type="text" name="xrp")
+                +b.field(class="--horizontal") 
+                    label Doge
+                    input(type="text" name="doge")
+                +b.field(class="--horizontal") 
+                    label Litecoin
+                    input(type="text" name="litecoin")
+                +b.field(class="--horizontal") 
+                    label UniSwap
+                    input(type="text" name="uniSwap")
+                +b.field(class="--horizontal") 
+                    label LINK 
+                    input(type="text" name="link")
+                +b.field(class="--horizontal") 
+                    label Aave
+                    input(type="text" name="aave")
+
+                +b.BUTTON( class="btn --yellow-gr")
+                    span Save changes 
+                    +e.SPAN.icon-wrap
+                        +icon('001-right-arrow')
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

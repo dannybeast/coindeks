@@ -1,0 +1,69 @@
+include ../bemto-master/bemto.pug
+
+include ../utils/mixins
+
+block variables
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    title #{title}
+    meta(name="description", content=description)
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+    link(rel="stylesheet" href="assets/css/app.css")
+    block head
+
+  body
+    .loader
+      img(src="assets/images/spinner.svg", alt="")
+    main#app.wrapper
+      // Auth layout
+      +b.auth-layout
+
+        // Wrapper
+        +e.wrapper
+            +e.HEADER.header 
+                +e.A(href="index.html" class="logo")
+                    img(src="assets/images/logo/logo.svg", alt="")
+                +e.right 
+                
+                    +b.select-language(class='--gray').js-dropdown
+                        +e.A(class="link")
+                            span En
+                        +e.dropdown
+                            +e.UL
+                                +e.LI
+                                    +e.A(href="#") Ru
+                                +e.LI
+                                    +e.A(href="#") De
+                    if pageName === 'register'
+                        +b.A(href="login.html" class="btn --line-yellow --small")
+                            +icon('key')
+                            span Login
+                    else 
+                        +b.A(href="register.html" class="btn --yellow --small")
+                            +icon('user')
+                            span Registration
+            +e.ARTICLE.content
+
+                // Begin page
+                block content
+                // End page  
+            +e.FOOTER.footer 
+                p © <span class="js-current-year"></span>, ybot trade | All rights reserved
+
+        // Right bar
+        +b.bar 
+            +e.menu-btn 
+                include ../includes/modules/_hamburger
+            
+            include ../includes/modules/_social
+
+        include ../includes/modules/_mega-menu
+        include ../includes/modules/_mobile-menu
+        
+      // Modals
+      //-include ../includes/modals/calculator
+    block script

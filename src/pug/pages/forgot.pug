@@ -1,0 +1,43 @@
+extends ../layout/login
+
+block variables
+    - var title = 'Ybot.trade – Forgot';
+    - var description = '';
+    - var pageName = 'login';
+
+block content
+
+    +b.sign 
+        +e.top 
+            +e.H1.title Forgot
+            +e.UL.links 
+                +e.LI 
+                    +e.A(href="login.html") Sign In
+                +e.LI 
+                    +e.A(href="register.html") Sign up
+                
+        +e.content
+            // 
+            form
+                //
+                +e.row 
+                
+                    +e.col(class="--12") 
+                        +b.field 
+                            label Email 
+                            input(type="text" name="email")
+                    +e.col(class="--12") 
+                        +b.field 
+                            label Pass of 2fa code
+                            input(type="text" name="pass_2fa")
+        
+                //
+                +e.footer
+                    +b.BUTTON( class="btn --black")
+                        span Forgot password
+                        +e.SPAN.icon-wrap
+                            +icon('001-right-arrow')
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

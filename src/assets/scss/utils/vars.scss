@@ -1,0 +1,33 @@
+// Font
+$mainFont: "Rubik", sans-serif;
+$accentFont: "Rubik", sans-serif;
+
+// Size
+$mainFontColor: #000;
+$mainFontSize: 16px;
+$mainFontWeight: 400;
+$mainLineHeight: 1.3;
+
+// Main color
+$gray-light: #efefef;
+$default-color: #ffffff;
+$primary-color: #e14135;
+$success-color: #1ec16f;
+$danger-color: #eb001b;
+$warning-color: #ff5100;
+$border-base: #dbdddc;
+
+// Animations
+$anim: cubic-bezier(0.58, 0.3, 0.005, 1);
+$animSpeed: 0.4s;
+
+$block-radius: 8px;
+
+// fields
+$field-margin: 25px;
+$field-border-width: 2px;
+$field-border-color: $border-base;
+$field-color-danger: $danger-color;
+$field-radius: 0;
+$field-height: 50px;
+$field-bg: transparent;

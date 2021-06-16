@@ -1,0 +1,32 @@
++b.HEADER.header 
+    .container.container-large
+        +e.row
+            +e.A(href="index.html" class="logo")
+                img(src="assets/images/logo/logo.png", alt="")
+                   
+            +e.NAV.nav 
+                ul
+
+                    li(class=( pageName === "products" ? " is-active" : undefined))
+                        a(href="products.html") Products 
+                    
+                    li(class=( pageName === "support" ? " is-active" : undefined))
+                        a(href="support.html") Support
+                    
+                    li(class=( pageName === "company" ? " is-active" : undefined))
+                        a(href="company.html") Company
+                    
+                    li(class=( pageName === "bounty" ? " is-active" : undefined))
+                        a(href="bounty.html") Bounty
+
+            include _social
+
+            +e.right 
+
+                +b.A(href="login.html" class="btn --white --small")
+                    span Login
+                    +icon('001-key-with-hole')
+
+                +b.A(href="register.html" class="btn --primary --small")
+                    span Register
+                    +icon('002-user')

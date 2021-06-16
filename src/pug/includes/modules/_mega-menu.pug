@@ -1,0 +1,56 @@
+// Mega menu
++b.mega-menu 
+    .container
+        +e.right 
+
+            include ./_lang
+
+            if pageType != 'profile'
+                // If not auth
+                +b.A(href="login.html" class="btn --line-yellow --small")
+                    +icon('key')
+                    span Login
+
+                +b.A(href="register.html" class="btn --yellow --small")
+                    +icon('user')
+                    span Registration
+            else 
+                // If auth
+                +b.A(href="profile-account.html" class="btn --yellow --small")
+                    +icon('user')
+                    span Username123
+        +e.row 
+
+
+            +e.col(class="--yellow")
+                +e.top
+                    +e.A(href="index.html" class="logo")
+                        img(src="assets/images/logo/logo.svg", alt="")
+                        +e.H4.slogan Automatic trading on the Binance
+                +e.center
+                    +b.UL.icon-list
+                        +e.LI 
+                            +icon('check')
+                            span First 3 months free use of the bot
+                        +e.LI 
+                            +icon('calendar')
+                            span A steady profit every day
+                        +e.LI 
+                            +icon('dollar')
+                            span Instant Profit Payments 
+                        +e.LI 
+                            +icon('credit-card')
+                            span No Fees
+
+
+            +e.col 
+                +e.top
+                +e.center
+                    +e.NAV.nav 
+                        +e.UL
+                            +e.LI(class=( pageName === "index" ? " is-active" : undefined))
+                                +e.A(href="index.html") Home
+                            +e.LI(class=( pageName === "referral" ? " is-active" : undefined)) 
+                                +e.A(href="referral.html") Referral Program
+                            +e.LI(class=( pageName === "about" ? " is-active" : undefined)) 
+                                +e.A(href="about.html") About Us 

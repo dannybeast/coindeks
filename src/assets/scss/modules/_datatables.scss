@@ -1,0 +1,340 @@
+.table-wrapper {
+ margin-top: 20px;
+ @include md-block() {
+  overflow: auto;
+ }
+}
+
+.lk-table {
+ .dataTables_wrapper {
+  .dataTables_length,
+  .dataTables_filter {
+   display: none;
+  }
+ }
+
+ table {
+  tr {
+   td,
+   th {
+    border: none;
+    padding: 0 5px;
+    height: 50px;
+    border-right: 1px solid $border-base;
+    &:last-child {
+     border-right: none;
+    }
+    @include sm-block() {
+     height: 40px;
+    }
+   }
+
+   th {
+    color: rgba(#000, 1);
+    font-weight: 700;
+    font-size: 14px;
+    width: initial !important;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    border-bottom: 2px solid #000;
+    @include lg-block(){
+        white-space: nowrap;
+    }
+
+    span {
+     position: relative;
+     display: inline-flex;
+     align-items: center;
+     vertical-align: top;
+
+     &:after {
+      content: "";
+      width: 17px;
+      height: 14px;
+      display: block;
+      margin-left: 8px;
+      background-repeat: no-repeat;
+      background-size: contain;
+     }
+
+     &:hover {
+      color: rgba(#000, 0.9);
+     }
+    }
+
+    &.sorting {
+     span {
+      &:after {
+       background-image: url("../images/datatables/sort_both.png");
+      }
+     }
+    }
+
+    &.sorting_asc {
+     span {
+      &:after {
+       background-image: url("../images/datatables/sort_asc.png");
+      }
+     }
+    }
+
+    &.sorting_desc {
+     span {
+      &:after {
+       background-image: url("../images/datatables/sort_desc.png");
+      }
+     }
+    }
+
+    &.no-sorting {
+     span {
+      &:after {
+       display: none !important;
+      }
+     }
+    }
+   }
+
+   td {
+    font-size: 13px;
+    color: #000;
+   }
+
+   &:nth-child(even) {
+    td {
+     background: #f6f6f6;
+    }
+   }
+  }
+ }
+
+ .dataTables_info {
+  display: none;
+ }
+
+ .dataTables_paginate {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-left: -5px;
+  margin-right: -5px;
+
+  & > * {
+   margin: 5px;
+  }
+
+  & > span {
+   order: 3;
+   border-radius: 2px;
+
+   display: flex;
+
+   a {
+    @include paginationBtn();
+
+    &.current {
+     @include paginationBtnActive();
+    }
+   }
+  }
+
+  .ellipsis {
+   padding: 8px 0;
+   line-height: 1;
+   font-size: 16px;
+   display: block;
+   margin-left: 3px;
+   background: transparent;
+   color: rgba(#000, 0.3);
+  }
+
+  & > .paginate_button {
+   padding: 8px 13px;
+   line-height: 1;
+   font-size: 14px;
+   text-decoration: none;
+   display: none;
+   border-radius: 2px;
+   background: #000;
+   color: #fff;
+
+   &:hover {
+    text-decoration: none;
+   }
+
+   &.next {
+    margin-right: auto;
+    margin-left: 5px;
+   }
+
+   &.disabled {
+    color: rgba(#000, 0.3);
+    pointer-events: none;
+    cursor: default;
+    background: $border-base;
+   }
+  }
+ }
+}
+
+@mixin fieldStyle() {
+ font-size: 18px;
+ padding-right: 35px;
+ background: #fff;
+ color: #000;
+ box-shadow: 0 0 23px 4px rgba(0, 1, 1, 0.05);
+ border-radius: 6px;
+}
+
+.dataTables_length {
+ label {
+  display: inline-flex;
+  vertical-align: top;
+  align-items: center;
+  font-size: 15px;
+  position: relative;
+  font-size: 0;
+  &:after {
+   content: "";
+   background: svg-load("../icons/down-circle.svg", fill=#bcbcbc);
+   background-size: contain;
+   background-repeat: no-repeat;
+   display: block;
+   width: 17px;
+   height: 17px;
+   position: absolute;
+   top: 50%;
+   right: 10px;
+   transform: translateY(-50%);
+   pointer-events: none;
+  }
+  select {
+   max-width: 80px;
+   @include fieldStyle();
+  }
+ }
+}
+
+.dataTables_filter {
+ width: 100%;
+ max-width: 315px;
+ @include sm-block() {
+  max-width: calc(100% - 85px);
+ }
+ label {
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include sm-block() {
+   flex-wrap: wrap;
+  }
+  &:after {
+   content: "";
+   background: svg-load("../icons/search.svg", fill=#bcbcbc);
+   background-size: contain;
+   background-repeat: no-repeat;
+   display: block;
+   width: 17px;
+   height: 17px;
+   position: absolute;
+   bottom: 12px;
+   right: 10px;
+   pointer-events: none;
+  }
+  input {
+   margin-left: 15px;
+   @include fieldStyle();
+   width: 100%;
+   @include sm-block() {
+    margin-left: 0;
+    margin-top: 5px;
+   }
+  }
+ }
+}
+
+.date-period-filter {
+ display: flex;
+ align-items: center;
+ @include sm-block() {
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  &:last-child {
+   margin-bottom: 0;
+  }
+ }
+ label {
+  margin-right: 10px;
+  white-space: nowrap;
+  @include sm-block() {
+   margin-right: 0;
+  }
+ }
+ &__name {
+  @include sm-block() {
+   width: 100%;
+   margin-bottom: 10px;
+  }
+ }
+ input {
+  @include fieldStyle();
+  max-width: 120px;
+  padding-right: 35px;
+  font-size: 13px;
+  padding-left: 10px;
+  @include sm-block() {
+   max-width: 100%;
+  }
+ }
+ &__field-date {
+  position: relative;
+  @include sm-block() {
+   width: calc(50% - 20px);
+  }
+  &:after {
+   content: "";
+   background: svg-load("../icons/calendar-min.svg", fill=#bcbcbc);
+   background-size: contain;
+   background-repeat: no-repeat;
+   display: block;
+   width: 20px;
+   height: 17px;
+   position: absolute;
+   bottom: 12px;
+   right: 10px;
+   pointer-events: none;
+  }
+ }
+ &__separator {
+  margin: 0 10px;
+ }
+}
+.filter-table {
+ background: #ebebeb;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 20px 25px;
+ @include sm-block() {
+  flex-wrap: wrap;
+  margin-left: -$offset_sm;
+  margin-right: -$offset_sm;
+ }
+ .dataTables_length {
+  @include sm-block() {
+   margin-top: auto;
+  }
+ }
+}
+
+.dataTables_empty {
+ text-align: center;
+ text-transform: uppercase;
+ font-weight: 700;
+ color: #999 !important;
+ padding: 30px 0 !important;
+ font-size: 16px !important;
+}

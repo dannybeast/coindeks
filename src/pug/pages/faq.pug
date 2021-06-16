@@ -1,0 +1,45 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Ybot.trade – FAQ';
+    - var description = '';
+    - var pageName = 'faq';
+
+block content
+    //
+    +b.SECTION.faq.page-section
+        mixin faq-item(title)
+            +e.LI.item
+                +e.H4.title(data-accordion="trigger") 
+                    span #{title}
+                div(data-accordion='content-container')
+                    +e.content(data-accordion="content").typography
+                        p Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
+
+        .container
+            +b.H5.subtitle Questions
+            +b.H1.title FAQ
+
+            +b.typography
+                p
+                    big 
+                        strong Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. 
+            
+            +b.A(href="register.html" class="btn --yellow-gr")
+                span Ask your question  
+                +e.SPAN.icon-wrap
+                    +icon('001-right-arrow')
+
+            +b.UL.accordion
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+                +faq-item('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ')
+
+
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

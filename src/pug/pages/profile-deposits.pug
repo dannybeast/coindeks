@@ -1,0 +1,241 @@
+extends ../layout/profile
+
+block variables
+    - var title = 'Ybot.trade – Profile settings';
+    - var description = '';
+    - var pageName = 'deposits';
+    - var pageType = 'profile';
+block content
+
+    form
+        +b.SECTION
+            .container
+                +b.H5.subtitle Ybot trade
+                +b.H1.title Make a new deposit  
+
+                +b.choose-currency 
+                    +e.H5.title Select payment system:
+                    +e.block 
+                        ul
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="usdt" checked)
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/usdt.svg", alt="")
+                                            +e.P.name USDT
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="dai")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/dai.svg", alt="")
+                                            +e.P.name DAI
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="btc")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/btc.svg", alt="")
+                                            +e.P.name Bitcoin
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="eth")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/eth.svg", alt="")
+                                            +e.P.name Ethereum
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="xrp")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/xrp.svg", alt="")
+                                            +e.P.name XRP
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="doge")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/doge.svg", alt="")
+                                            +e.P.name Doge
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="ltc")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/ltc.svg", alt="")
+                                            +e.P.name Litecoin
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="uni")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/uni.svg", alt="")
+                                            +e.P.name Uniswap
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="link")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/link.svg", alt="")
+                                            +e.P.name Link
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+                            li
+                                +b.LABEL.currency-label 
+                                    input(type="radio" name="currency" value="aave")
+                                    +e.SPAN.button
+                                        +e.left 
+                                            +e.icon 
+                                                img(src="assets/images/currency/aave.svg", alt="")
+                                            +e.P.name Aave
+                                        +e.right 
+                                            +e.P.value 159% after 100 days
+                                            +e.bottom
+                                                p Total funds: 0.000000 BTC
+
+
+        +b.SECTION
+            .container
+                +b.block-yellow
+                    +e.row
+                        +b.field(class="--horizontal --subtext")
+                            label Enter amount:
+                            input(type="number" name="amount" value="0.125")
+                            +e.P.subtext BTC
+
+                        +b.UL.labels-list 
+                            +e.LI 
+                                +e.button(data-val="0.001")
+                                    span Min
+                            +e.LI 
+                                +e.button(data-val="0.050")
+                                    span 0.050
+                            +e.LI 
+                                +e.P.marker(class="--gray") Optimal
+                                +e.button(data-val="0.10")
+                                    span 0.10
+                            +e.LI 
+                                +e.P.marker(class="--white") Recommend
+                                +e.button(data-val="0.50")
+                                    span 0.50
+                            +e.LI 
+                                +e.P.marker Best choise
+                                +e.button(data-val="1.00")
+                                    span 1.00
+
+                        +b.BUTTON( class="btn --black")
+                            span Make deposit
+                            +e.SPAN.icon-wrap
+                                +icon('001-right-arrow')
+
+    +b.SECTION.count-statistics
+        .container 
+            +e.row 
+                +e.col 
+                    +b.total-item 
+                        +e.icon 
+                            +icon('bars')
+                        +e.content 
+                            h5 Earning 
+                            p 
+                                strong 157% for 131 days
+
+                +e.col 
+                    +b.total-item(class="--yellow")
+                        +e.icon 
+                            +icon('coins')
+                        +e.content 
+                            h5 Total profit  
+                            p 
+                                strong 0.015700
+
+                +e.col 
+                    p Principal included: Yes
+                    p Investment period: 138
+                    p Accruals: calendar days
+
+                +e.col 
+                    p Daily interest:1.14%
+                    p Minimal: 0.000650 BTC
+                    p Daily accrual: 0.000007 BTC
+
+
+    +b.SECTION
+        mixin tr(index)
+            tr
+                td Bitcoin
+                td 157% for 131 days
+                td 
+                    strong 0.001 BTC
+                td 
+                    strong 0.125 BTC
+                td 22 Februrary 2021
+                td 
+                    strong 123
+
+        .container
+            +b.H3.title(class="--small") Your Deposits List
+
+            +b.block.table-filter-hidden
+                table.js-datatables.responsive.nowrap(
+                    data-page-length="10" )
+                    thead
+                        tr
+                            th Currency
+                            th Percent
+                            th Amount
+                            th Profit
+                            th Next accural
+                            th Days of work
+                    tbody
+                        each val in [1, 2, 3, 4, 5,6,7,8,9]
+                            +tr(val)
+
+block script
+    //-script(src="assets/js/vendors.js")
+    script(src="assets/js/app.js")
