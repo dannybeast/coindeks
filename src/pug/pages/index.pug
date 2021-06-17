@@ -8,8 +8,10 @@ block variables
 block content
 
   //
-  +b.SECTION.intro(style="background-image: url('assets/images/intro/bg.png')")
+  +b.SECTION.intro
+    +e.bg(style="background-image: url('assets/images/intro/bg.png')")
     .container.container-large
+
       +e.row 
 
         +e.col 
@@ -138,7 +140,7 @@ block content
 
       +b.road-map-item(class="--checked")
         +e.P.date June 2021
-        +e.P.title 1<sup>st<sup> round of token sale
+        +e.P.title 1<sup>st</sup> round of token sale
         +e.status 
           +icon('001-tick')
           span Completed

@@ -6,7 +6,6 @@ export default function() {
   document.querySelectorAll('.reviews-block').forEach((el, index)=>{
 
     let slider = el.querySelector('.js-reviews-slider')
-    console.log(slider);
 
     var swiperReviews = new Swiper(slider, {
       loop: false,
@@ -22,8 +21,6 @@ export default function() {
     });
 
   })
-
-
 
 
     var swiperMedia = new Swiper(".js-what-slider", {

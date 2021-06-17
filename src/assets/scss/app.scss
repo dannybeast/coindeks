@@ -33,7 +33,7 @@ html {
     line-height: $mainLineHeight;
     font-size: $mainFontSize;
     color: $mainFontColor;
-    //@include md(font-size, 17px);
+    @include md(font-size, 12px);
 }
 
 body {
@@ -100,10 +100,10 @@ a {
 .mobile-menu {
     overflow: hidden;
     overflow-y: auto;
-    padding: 15px 0 30px 0;
-    background: #000;
+    padding: 30px 0 30px 0;
+    background: linear-gradient(97deg, #17072b, #110522);
     position: fixed;
-    top: 130px;
+    top: 1300px;
     height: calc(100% - 130px);
     left: 0;
     right: 0;
@@ -168,7 +168,7 @@ a {
     .select-language {
         z-index: 5;
     }
-    .social {
+    .follow {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -351,23 +351,23 @@ section {
 
 .subtitle {
     font-weight: 600;
-    font-size: 28px;
+    font-size: rem(28px);
 }
 
 .title {
-    font-size: 64px;
+    font-size: rem(64px);
     font-weight: 300;
     margin-bottom: 30px;
 
     &--after {
         &:after {
             content: "";
-            max-width: 380px;
+            max-width: rem(380px);
             width: 100%;
             height: 2px;
             background: #e14135;
             display: block;
-            margin-top: 55px;
+            margin-top: rem(55px);
         }
     }
 
@@ -399,47 +399,90 @@ section {
 
 .intro {
     background-color: #211836;
-    background-position: cover;
     color: #fff;
     padding-top: 100px;
     padding-bottom: 0;
+    position: relative;
+    &__bg {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        background-size: cover;
+    }
+    svg {
+        overflow: visible;
+    }
+
     &__row {
         @include u-row-flex(0);
     }
     &__col {
         @include u-col(0);
         @include u-size(6, 12, 0);
-        padding-top: 79px;
-        padding-bottom: 107px;
+        padding-top: 80px;
+        padding-bottom: 100px;
         position: relative;
         text-align: center;
         padding-left: 30px;
         padding-right: 30px;
         min-height: 820px;
+
+        @include lg-block() {
+            padding-top: 80px;
+            padding-bottom: 0;
+            &:last-child {
+                padding-bottom: 80px;
+            }
+        }
+        @include md-block() {
+            min-height: auto;
+        }
+
         &:before {
             content: "";
             position: absolute;
             top: 0;
             width: 9999px;
             bottom: 0;
-            background: rgba(#1d173b, 0.75);
+            background: rgba(#1d173b, 0.9);
             transition: all 0.2s linear;
         }
         &:first-child {
             svg {
                 max-width: 590px;
                 margin-bottom: 40px;
+                @include sm-block() {
+                    max-width: 150%;
+                    width: 150%;
+                }
             }
             &:before {
                 right: 0;
+                @include lg-block() {
+                    right: -30px;
+                }
+                @include sm-block() {
+                    right: -15px;
+                }
             }
         }
         &:last-child {
             .intro__col-content {
                 margin-left: auto;
+                @include lg-block() {
+                    margin-right: auto;
+                }
             }
             &:before {
                 left: 0;
+                @include lg-block() {
+                    left: -30px;
+                }
+                @include sm-block() {
+                    left: -15px;
+                }
             }
         }
         &:hover {
@@ -447,6 +490,7 @@ section {
                 opacity: 0;
             }
         }
+
         &-content {
             position: relative;
             z-index: 2;
@@ -455,11 +499,16 @@ section {
             align-items: center;
             flex-direction: column;
             max-width: 640px;
+            @include lg-block() {
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
         @include md-block() {
             @include u-size(12, 12, 0);
         }
     }
+
     .btn {
         opacity: 0.8;
         height: 50px;
@@ -467,12 +516,19 @@ section {
             opacity: 1;
         }
     }
+
     .token-group {
         margin: auto 0;
+        max-width: 100%;
+
+        @include md-block() {
+            margin: 40px 0;
+        }
     }
 
     &__description {
         font-size: 16px;
+        line-height: 1.5;
         margin-bottom: 30px;
         font-weight: 300;
         max-width: 620px;
@@ -488,7 +544,7 @@ section {
             }
         }
         big {
-            font-size: 28px;
+            font-size: rem(28px);
         }
         strong {
             font-weight: 600;
@@ -497,14 +553,19 @@ section {
 
     .title {
         display: inline-block;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
         &:after {
             margin-top: 5px;
             max-width: 100%;
         }
     }
 }
-
+sup {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.7em;
+    margin: 0.15em 0 0 0.05em;
+}
 .faq {
     padding: rem(165px) 0 rem(140px);
 
@@ -534,7 +595,7 @@ section {
         }
         &:after {
             content: "";
-            width: 374px;
+            width: rem(374px);
             max-width: 100%;
             height: 2px;
             display: block;
@@ -1349,11 +1410,12 @@ table {
     background: #ececf0;
     border-radius: 5px;
     padding: 54px 50px 37px;
+    font-size: rem(18px);
     &__top {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 58px;
+        margin-bottom: rem(58px);
     }
     &__content {
         padding-top: 40px;
@@ -1364,8 +1426,8 @@ table {
         line-height: 1.5;
     }
     &__icon {
-        width: 59px;
-        height: 59px;
+        width: rem(59px);
+        height: rem(59px);
         overflow: hidden;
         flex-shrink: 0;
     }
@@ -1480,12 +1542,23 @@ table {
 .video-reviews {
     padding-top: rem(154px);
     padding-bottom: rem(183px);
+    @include sm-block() {
+        padding-top: rem(100px);
+        padding-bottom: rem(100px);
+    }
     .title {
         max-width: 200px;
         line-height: 1.2;
+        @include sm-block() {
+            text-align: center;
+            margin: 0 auto;
+        }
     }
     &__top {
-        margin-bottom: 100px;
+        margin-bottom: rem(100px);
+        @include sm-block() {
+            margin-bottom: rem(60px);
+        }
     }
     &__row {
         @include u-row-flex(50px);
@@ -1493,6 +1566,13 @@ table {
     &__col {
         @include u-col(50px);
         @include u-size(4, 12, 50px);
+        @include sm-block() {
+            @include u-size(12, 12, 50px);
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }
 
@@ -1500,8 +1580,8 @@ table {
     position: relative;
     &:before {
         content: "";
-        width: 40px;
-        height: 29px;
+        width: rem(40px);
+        height: rem(29px);
         display: block;
         margin-bottom: 30px;
         background: url("../images/quote.png") center no-repeat;
@@ -1509,12 +1589,12 @@ table {
     }
     &__title {
         font-weight: 300;
-        font-size: 26px;
+        font-size: rem(26px);
         margin-bottom: 15px;
         line-height: 1.4;
     }
     &__description {
-        font-size: 20px;
+        font-size: rem(20px);
         font-weight: 300;
         line-height: 1.6;
         opacity: 0.5;
@@ -1528,15 +1608,25 @@ table {
     padding-bottom: rem(210px);
     position: relative;
     padding-top: 0;
-
+    @include sm-block() {
+        padding-top: rem(100px);
+        padding-bottom: rem(100px);
+    }
     &__col {
         &-left,
         &-right {
             padding-top: rem(170px);
+            @include sm-block() {
+                padding-top: 0;
+            }
         }
         &-left {
             width: 415px;
             position: relative;
+            @include sm-block() {
+                width: 100%;
+                margin-bottom: 80px;
+            }
             &:after {
                 content: "";
                 width: 2px;
@@ -1545,6 +1635,10 @@ table {
                 background: $primary-color;
                 position: absolute;
                 left: 100%;
+                @include sm-block() {
+                    top: 0;
+                    height: 100%;
+                }
             }
             .title {
                 max-width: 200px;
@@ -1559,13 +1653,23 @@ table {
         &-right {
             width: calc(100% - 410px);
             padding-left: 170px;
+            @include sm-block() {
+                padding-left: 0;
+                width: 100%;
+            }
         }
     }
     &__row {
         display: flex;
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
     }
     .quote {
         margin-bottom: rem(140px);
+        @include sm-block() {
+            margin-bottom: rem(100px);
+        }
         &:last-child {
             margin-bottom: 0;
         }
@@ -1575,6 +1679,10 @@ table {
 .road-map {
     padding-top: rem(160px);
     padding-bottom: rem(173px);
+    @include sm-block() {
+        padding-top: rem(100px);
+        padding-bottom: rem(100px);
+    }
     .title {
         margin-bottom: rem(82px);
     }
@@ -1594,7 +1702,7 @@ table {
 
 .page-description {
     text-align: center;
-    font-size: 26px;
+    font-size: rem(26px);
     font-weight: 300;
     max-width: 930px;
     line-height: 1.65;
@@ -1604,11 +1712,18 @@ table {
 .what-coindeks {
     padding-top: rem(152px);
     padding-bottom: rem(188px);
+    @include sm-block() {
+        padding-top: rem(100px);
+        padding-bottom: rem(100px);
+    }
     .title {
         margin-bottom: rem(72px);
     }
     .page-description {
         margin: 0 auto rem(76px);
+    }
+    .swiper-container {
+        overflow: visible;
     }
     &__slider {
         margin-bottom: rem(105px);
@@ -1631,6 +1746,9 @@ table {
     background: #ececf0;
     border-radius: 5px;
     padding: 34px 30px 34px;
+    &:hover {
+        background: darken(#ececf0, 2%);
+    }
     &__count {
         color: $primary-color;
         font-size: 14px;
@@ -1659,6 +1777,9 @@ table {
     padding-bottom: rem(105px);
     .title {
         margin-bottom: 93px;
+        @include sm-block() {
+            margin-bottom: 30px;
+        }
     }
     &__trust {
         border-right: solid 1px rgba(#fff, 0.2);
@@ -1667,20 +1788,39 @@ table {
         max-width: 25%;
         padding-top: 20px;
         padding-bottom: 20px;
+        @include sm-block() {
+            width: 100%;
+            max-width: 100%;
+            margin-right: 0;
+            padding-right: 0;
+            border: none;
+            text-align: center;
+            margin-bottom: 40px;
+        }
     }
     &__row {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 81px;
+        @include sm-block() {
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
     }
     &__logos {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-grow: 1;
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
         li {
             padding: 0 15px;
+            @include sm-block() {
+                padding: 0 15px 30px;
+            }
         }
         a {
             opacity: 0.3;
@@ -1697,6 +1837,11 @@ table {
     align-items: center;
     padding: 30px 40px 30px 100px;
     border-radius: 5px;
+    @include sm-block() {
+        padding: 30px 20px;
+        flex-wrap: wrap;
+        text-align: center;
+    }
     &__date {
         text-align: center;
         font-size: 18px;
@@ -1704,6 +1849,11 @@ table {
         color: #9f9eb5;
         width: 150px;
         position: relative;
+        @include sm-block() {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
+        }
         &:after {
             content: "";
             width: 1px;
@@ -1713,12 +1863,20 @@ table {
             top: 50%;
             background: #cdcdd8;
             transform: translateY(-50%);
+            @include sm-block() {
+                display: none;
+            }
         }
     }
     &__title {
         font-size: 20px;
         font-weight: 300;
+        line-height: 1.5;
         margin-left: 60px;
+        @include sm-block() {
+            width: 100%;
+            margin-left: 0;
+        }
     }
     &__status {
         font-size: 16px;
@@ -1732,6 +1890,10 @@ table {
         color: #fff;
         padding: 0 15px;
         margin-left: auto;
+        @include sm-block() {
+            margin-right: auto;
+            margin-top: 15px;
+        }
         span {
             opacity: 0.5;
         }

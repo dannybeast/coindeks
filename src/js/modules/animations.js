@@ -34,136 +34,20 @@ export default function() {
 
  animate(".intro", new TimelineLite()
  .fromTo(
-  ".intro .form-block",
-  animationSpeed,
-  { z: -50, autoAlpha: 0 },
-  { z: 0, autoAlpha: 1 , ease: ease }
- )
- .fromTo(
-  ".intro__content",
-  animationSpeed,
-  { x:animationSize, autoAlpha: 0 },
-  { x: 0, autoAlpha: 1,ease: ease },
-  "-=0.2"
- ));
-
-
- animate(".referral-intro", new TimelineLite()
- .fromTo(
-  ".referral-intro__media",
-  animationSpeed,
-  { z: -50, autoAlpha: 0 },
-  { z: 0, autoAlpha: 1 , ease: ease }
- )
- .fromTo(
-  ".referral-intro__content",
-  animationSpeed,
-  { x:animationSize, autoAlpha: 0 },
-  { x: 0, autoAlpha: 1,ease: ease },
-  "-=0.2"
- ));
-
- animate(".about-intro", new TimelineLite()
- .fromTo(
-  ".about-intro__media",
-  animationSpeed,
-  { z: -50, autoAlpha: 0 },
-  { z: 0, autoAlpha: 1 , ease: ease }
- )
- .fromTo(
-  ".about-intro__content",
-  animationSpeed,
-  { x:animationSize, autoAlpha: 0 },
-  { x: 0, autoAlpha: 1,ease: ease },
-  "-=0.2"
- ));
-
-
- animate(".referral", new TimelineLite()
- .fromTo(
-  ".referral__col:first-child",
-  animationSpeed,
-  { y: animationSize, autoAlpha: 0,ease: ease },
-  { y: 0, autoAlpha: 1,ease: ease }
- )
- .fromTo(
-  ".referral__media",
-  animationSpeed,
-  { x: animationSize, autoAlpha: 0 ,ease: ease},
-  { x: 0, autoAlpha: 1 ,ease: ease},
-  "-=0.2"
- ).delay( 0 ));
-
-
- animate(".how-work", new TimelineLite()
- .fromTo(
-  ".how-work__col:first-child",
-  animationSpeed,
-  { y: animationSize, autoAlpha: 0,ease: ease },
-  { y: 0, autoAlpha: 1,ease: ease }
- )
- .fromTo(
-  ".how-work__media",
-  animationSpeed,
-  { x: animationSize, autoAlpha: 0 ,ease: ease},
-  { x: 0, autoAlpha: 1 ,ease: ease},
-  "-=0.2"
- ).delay( 0 ));
-
-
-
- animate(".reviews", new TimelineLite()
- .fromTo(
-  ".reviews .subtitle, .reviews .title",
-  0.3,
-  {  autoAlpha: 0,ease: ease },
-  { autoAlpha: 1,ease: ease }
- )
- .fromTo(
-  ".reviews .swiper-slide",
-  animationSpeed,
-  { y: animationSize, autoAlpha: 0 ,ease: ease},
-  { y: 0, autoAlpha: 1 ,ease: ease,  stagger: {
-    each: 0.1,
-   },},
-  "-=0.2"
+  ".intro__bg",
+  1,
+  { autoAlpha: 0 },
+  { autoAlpha: 1 , ease: ease }
  ).fromTo(
-    ".reviews__bottom .btn",
-    animationSpeed,
-    { y: animationSize, autoAlpha: 0 ,ease: ease},
-    { y: 0, autoAlpha: 1 ,ease: ease},
-    "-=0.2"
-   ).fromTo(
-    ".reviews [ref='prev'], .reviews [ref='next']",
-    animationSpeed,
-    { autoAlpha: 0 ,ease: ease},
-    {  autoAlpha: 1 ,ease: ease},
-    "-=0.2"
-   ).delay( 0 ));
+    ".intro__col",
+    1,
+    { y:10, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1 , ease: ease, stagger: {
+        each: 0.2,
+        } },"-=0.5"
+   )
+);
 
-
-
-animate(".media-about", new TimelineLite()
-.fromTo(
-".media-about",
-animationSpeed*0.8,
-{ y: animationSize, autoAlpha: 0,ease: ease },
-{ y: 0, autoAlpha: 1,ease: ease }
-).fromTo(
-".media-about .swiper-slide",
-animationSpeed,
-{ y: animationSize, autoAlpha: 0 ,ease: ease},
-{ y: 0, autoAlpha: 1 ,ease: ease,  stagger: {
-    each: 0.1,
-    },},
-"-=0.2"
-).fromTo(
-    ".media-about__bottom .btn",
-    animationSpeed,
-    { y: animationSize, autoAlpha: 0 ,ease: ease},
-    { y: 0, autoAlpha: 1 ,ease: ease},
-    "-=0.2"
-    ).delay( 0 ));
 
 
 animate(".faq", new TimelineLite()
@@ -176,7 +60,6 @@ each: 0.1,
 },},
 "-=0.2"
 ));
-
 
 
 animate(".auth-layout", new TimelineLite()
@@ -197,78 +80,40 @@ each: 0.1,
 
 
 
-animate(".team", new TimelineLite()
-.fromTo(
-".team__col",
-animationSpeed*0.8,
-{  x: 30, autoAlpha: 0,ease: ease },
-{  x: 0, autoAlpha: 1,ease: ease }
-).fromTo(
-".team .team-list li",
-animationSpeed,
-{ y: 30,  autoAlpha: 0 ,ease: ease},
-{ y:0, autoAlpha: 1 ,ease: ease,  stagger: {
-each: 0.1,
-},},
-"-=0.2"
-).fromTo(
-    ".team .team-list li img",
-    animationSpeed,
-    { scale: 1.2,  autoAlpha: 0 ,ease: ease},
-    { scale:1, autoAlpha: 1 ,ease: ease,  stagger: {
-    each: 0.1,
-    },},
-    "-=0.7"
-    )
-);
+if($('.intro__col-content svg').length){
+    let object = {
+      el: '.intro__col-content svg > g',
+      duration: 10
+    }
+    
+    gsap.fromTo(object.el, object.duration, {
+    opacity: 0,
+      y:  Math.PI * 2,
+      x: '-=15',
+      scale: 0.6,
+    }, {
+      opacity: 1,
+      y: '+=10',
+      x: 0,
+      scale: 1.,
+      transformOrigin: 'center',
+       modifiers: {
+        x: function(x) {
+          return Math.sin(parseFloat(x)) * 10 + "px";
+        },
+        y: function(y) {
+          return Math.sin(parseFloat(y)) * 10 + "px";
+        }
+      },
+      
+      stagger: {
+        each: object.duration / document.querySelectorAll(object.el).length*0.4, 
+        repeat: -1, 
+        yoyo: true
+      }
+    },
+    
+    ); }
 
-
-animate(".about-trade", new TimelineLite()
-.fromTo(
-".about-trade__content",
-animationSpeed*0.8,
-{ z: -50, autoAlpha: 0,ease: ease },
-{ z: 0,  autoAlpha: 1,ease: ease }
-).fromTo(
-".about-trade__media img",
-animationSpeed,
-{ z: -30,  autoAlpha: 0 ,ease: ease},
-{ z:0, autoAlpha: 1 ,ease: ease,  stagger: {
-each: 0.1,
-},},
-"-=0.2"
-));
-
-
-animate(".invest", new TimelineLite()
-.fromTo(
-".invest .quote",
-animationSpeed*0.8,
-{ z: -50, autoAlpha: 0,ease: ease },
-{ z: 0,  autoAlpha: 1,ease: ease }
-).fromTo(
-".invest .advantages-list li",
-animationSpeed,
-{ z: -30,  autoAlpha: 0 ,ease: ease},
-{ z:0, autoAlpha: 1 ,ease: ease,  stagger: {
-each: 0.15,
-},},
-"-=0.2"
-));
-
-
-animate(".contacts", new TimelineLite()
-.fromTo(
-".contacts__content",
-animationSpeed*0.8,
-{ z: -50, autoAlpha: 0,ease: ease },
-{ z: 0,  autoAlpha: 1,ease: ease }
-).fromTo(
-".contacts .contacts-form",
-animationSpeed,
-{ z: -30,  autoAlpha: 0 ,ease: ease},
-{ z:0, autoAlpha: 1 ,ease: ease},
-"-=0.2"
-));
 
 }

@@ -46,11 +46,18 @@
     }
     &__top {
         @include row-flex();
-        padding-top: 120px;
-        padding-bottom: 70px;
+        padding-top: rem(120px);
+        padding-bottom: rem(70px);
         &-col {
             @include col();
             @include size(2.4);
+            @include size-sm(6);
+            @include sm-block() {
+                margin-bottom: 60px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
             & > ul {
                 li {
                     margin-bottom: 20px;
@@ -85,12 +92,19 @@
         color: #fff;
         font-weight: 300;
         margin: 0 auto 0 60px;
+        @include sm-block() {
+            width: 100%;
+            margin: 30px 0;
+        }
     }
     &__bottom-links {
         display: flex;
         align-items: center;
         li {
             margin: 0 0 0 60px;
+            @include sm-block() {
+                margin: 0 60px 0 0;
+            }
         }
         a {
             color: #fff;
@@ -113,6 +127,9 @@
             padding-top: 60px;
             padding-bottom: 60px;
             position: relative;
+            @include sm-block() {
+                flex-wrap: wrap;
+            }
             &:before {
                 content: "";
                 width: 190px;

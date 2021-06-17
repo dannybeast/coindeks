@@ -37,6 +37,9 @@
     &__right {
         display: flex;
         align-items: center;
+        @include lg-block() {
+            display: none;
+        }
         .btn {
             opacity: 0.8;
             &:hover {
@@ -54,6 +57,9 @@
     .follow {
         margin-right: auto;
         margin-left: auto;
+        @include lg-block() {
+            display: none;
+        }
         li {
             margin-left: 15px;
             &:first-child {
@@ -69,6 +75,10 @@
     &__nav {
         margin-right: auto;
         margin-left: auto;
+
+        @include lg-block() {
+            display: none;
+        }
 
         ul {
             display: flex;

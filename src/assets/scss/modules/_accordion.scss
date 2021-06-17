@@ -56,19 +56,22 @@
     }
 
     &__content {
-        padding: 35px 55px;
+        padding: rem(35px) rem(55px);
         overflow: hidden;
         margin-bottom: 30px;
         border-top-right-radius: 0;
         border-top-left-radius: 0;
         font-family: $accentFont;
         color: rgba(#fff, 0.5);
+        @include sm-block() {
+            padding: rem(35px) rem(15px);
+        }
         &:last-child {
             margin-bottom: 0;
         }
     }
     &__title {
-        font-size: 26px;
+        font-size: rem(26px);
         line-height: 1.55;
         font-weight: 300;
         border: none;
