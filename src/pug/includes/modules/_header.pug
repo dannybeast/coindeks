@@ -7,9 +7,16 @@
             +e.NAV.nav 
                 ul
 
-                    li(class=( pageName === "products" ? " is-active" : undefined))
+                    li(class=( pageName === "products" ? " is-active" : undefined)).has-podmenu
                         a(href="products.html") Products 
-                    
+                        ul 
+                            li 
+                                a(href="#") Desktop Wallet
+                            li 
+                                a(href="#") Mobile Wallet
+                            li 
+                                a(href="#") Trezor Hardware Wallet
+                                
                     li(class=( pageName === "support" ? " is-active" : undefined))
                         a(href="support.html") Support
                     
