@@ -33,6 +33,7 @@ html {
     line-height: $mainLineHeight;
     font-size: $mainFontSize;
     color: $mainFontColor;
+    @include xxl(font-size, 14px);
     @include md(font-size, 12px);
 }
 
@@ -428,16 +429,13 @@ section {
         padding-left: 30px;
         padding-right: 30px;
         min-height: 820px;
-
-        @include lg-block() {
+        min-height: auto;
+        @include md-block() {
             padding-top: 80px;
             padding-bottom: 0;
             &:last-child {
                 padding-bottom: 80px;
             }
-        }
-        @include md-block() {
-            min-height: auto;
         }
 
         &:before {
@@ -460,7 +458,7 @@ section {
             }
             &:before {
                 right: 0;
-                @include lg-block() {
+                @include md-block() {
                     right: -30px;
                 }
                 @include sm-block() {
@@ -471,13 +469,13 @@ section {
         &:last-child {
             .intro__col-content {
                 margin-left: auto;
-                @include lg-block() {
+                @include md-block() {
                     margin-right: auto;
                 }
             }
             &:before {
                 left: 0;
-                @include lg-block() {
+                @include md-block() {
                     left: -30px;
                 }
                 @include sm-block() {
@@ -485,9 +483,11 @@ section {
                 }
             }
         }
-        &:hover {
-            &:before {
-                opacity: 0;
+        @include from($break_lg) {
+            &:hover {
+                &:before {
+                    opacity: 0;
+                }
             }
         }
 
@@ -520,7 +520,16 @@ section {
     .token-group {
         margin: auto 0;
         max-width: 100%;
-
+        img {
+            &:nth-child(1),
+            &:nth-child(3) {
+                width: 23%;
+            }
+            &:nth-child(2) {
+                width: 37%;
+                margin: 0 3%;
+            }
+        }
         @include md-block() {
             margin: 40px 0;
         }
@@ -534,6 +543,7 @@ section {
         max-width: 620px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: auto;
         &:last-child {
             margin-bottom: 0;
         }
@@ -1411,6 +1421,9 @@ table {
     border-radius: 5px;
     padding: 54px 50px 37px;
     font-size: rem(18px);
+    display: flex;
+    flex-direction: column;
+
     &__top {
         display: flex;
         align-items: center;
@@ -1442,6 +1455,7 @@ table {
     &__slider {
         width: 100%;
         position: relative;
+        margin-top: auto;
     }
     &__arrow {
         &-left,
@@ -1542,9 +1556,13 @@ table {
 .video-reviews {
     padding-top: rem(154px);
     padding-bottom: rem(183px);
+
     @include sm-block() {
         padding-top: rem(100px);
         padding-bottom: rem(100px);
+    }
+    .reviews-block {
+        height: 100%;
     }
     .title {
         max-width: 200px;
@@ -1562,16 +1580,31 @@ table {
     }
     &__row {
         @include u-row-flex(50px);
+        @include xxl-block() {
+            @include u-row-flex(30px);
+        }
+        @include lg-block() {
+            justify-content: center;
+        }
     }
     &__col {
         @include u-col(50px);
         @include u-size(4, 12, 50px);
-        @include sm-block() {
-            @include u-size(12, 12, 50px);
+
+        @include xxl-block() {
+            @include u-col(30px);
+            @include u-size(4, 12, 30px);
+        }
+        @include lg-block() {
+            @include u-col(30px);
+            @include u-size(6, 12, 30px);
             margin-bottom: 30px;
             &:last-child {
                 margin-bottom: 0;
             }
+        }
+        @include sm-block() {
+            @include u-size(12, 12, 30px);
         }
     }
 }
@@ -1623,6 +1656,9 @@ table {
         &-left {
             width: 415px;
             position: relative;
+            @include md-block() {
+                width: 50%;
+            }
             @include sm-block() {
                 width: 100%;
                 margin-bottom: 80px;
@@ -1635,7 +1671,7 @@ table {
                 background: $primary-color;
                 position: absolute;
                 left: 100%;
-                @include sm-block() {
+                @include md-block() {
                     top: 0;
                     height: 100%;
                 }
@@ -1653,6 +1689,12 @@ table {
         &-right {
             width: calc(100% - 410px);
             padding-left: 170px;
+            @include lg-block() {
+                padding-left: 80px;
+            }
+            @include md-block() {
+                width: 50%;
+            }
             @include sm-block() {
                 padding-left: 0;
                 width: 100%;
@@ -1777,7 +1819,7 @@ table {
     padding-bottom: rem(105px);
     .title {
         margin-bottom: 93px;
-        @include sm-block() {
+        @include md-block() {
             margin-bottom: 30px;
         }
     }
@@ -1788,7 +1830,11 @@ table {
         max-width: 25%;
         padding-top: 20px;
         padding-bottom: 20px;
-        @include sm-block() {
+        @include lg-block() {
+            max-width: 33.333%;
+            flex-shrink: 0;
+        }
+        @include md-block() {
             width: 100%;
             max-width: 100%;
             margin-right: 0;
@@ -1803,8 +1849,10 @@ table {
         align-items: center;
         justify-content: space-between;
         margin-bottom: 81px;
-        @include sm-block() {
+        @include md-block() {
             flex-wrap: wrap;
+        }
+        @include sm-block() {
             margin-bottom: 30px;
         }
     }
@@ -1813,12 +1861,17 @@ table {
         align-items: center;
         justify-content: space-between;
         flex-grow: 1;
-        @include sm-block() {
+        @include notebookLg-block() {
             flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-bottom: -30px;
+        }
+        @include md-block() {
+            justify-content: center;
         }
         li {
             padding: 0 15px;
-            @include sm-block() {
+            @include notebookLg-block() {
                 padding: 0 15px 30px;
             }
         }
@@ -1837,6 +1890,9 @@ table {
     align-items: center;
     padding: 30px 40px 30px 100px;
     border-radius: 5px;
+    @include md-block() {
+        padding-left: 40px;
+    }
     @include sm-block() {
         padding: 30px 20px;
         flex-wrap: wrap;
@@ -1848,6 +1904,7 @@ table {
         font-weight: 300;
         color: #9f9eb5;
         width: 150px;
+        flex-shrink: 0;
         position: relative;
         @include sm-block() {
             width: 100%;
@@ -1873,6 +1930,11 @@ table {
         font-weight: 300;
         line-height: 1.5;
         margin-left: 60px;
+        margin-right: 30px;
+        @include sm-block() {
+            margin-right: 0;
+        }
+
         @include sm-block() {
             width: 100%;
             margin-left: 0;
@@ -1890,6 +1952,7 @@ table {
         color: #fff;
         padding: 0 15px;
         margin-left: auto;
+        white-space: nowrap;
         @include sm-block() {
             margin-right: auto;
             margin-top: 15px;
