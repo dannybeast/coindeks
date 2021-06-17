@@ -506,7 +506,7 @@ section {
 }
 
 .faq {
-    padding: rem(100px) 0 rem(140px);
+    padding: rem(165px) 0 rem(140px);
 
     @include md-block() {
         padding: 80px 0;
@@ -1348,12 +1348,12 @@ table {
 .reviews-block {
     background: #ececf0;
     border-radius: 5px;
-    padding: 40px 50px;
+    padding: 54px 50px 37px;
     &__top {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 40px;
+        margin-bottom: 58px;
     }
     &__content {
         padding-top: 40px;
@@ -1478,9 +1478,11 @@ table {
 }
 
 .video-reviews {
-    padding-top: rem(160px);
+    padding-top: rem(154px);
+    padding-bottom: rem(183px);
     .title {
         max-width: 200px;
+        line-height: 1.2;
     }
     &__top {
         margin-bottom: 100px;
@@ -1563,7 +1565,7 @@ table {
         display: flex;
     }
     .quote {
-        margin-bottom: 120px;
+        margin-bottom: rem(140px);
         &:last-child {
             margin-bottom: 0;
         }
@@ -1572,7 +1574,16 @@ table {
 
 .road-map {
     padding-top: rem(160px);
-    padding-bottom: rem(160px);
+    padding-bottom: rem(173px);
+    .title {
+        margin-bottom: rem(82px);
+    }
+    .road-map-item {
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .page-buttons {
@@ -1692,6 +1703,17 @@ table {
         font-weight: 300;
         color: #9f9eb5;
         width: 150px;
+        position: relative;
+        &:after {
+            content: "";
+            width: 1px;
+            height: 130%;
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            background: #cdcdd8;
+            transform: translateY(-50%);
+        }
     }
     &__title {
         font-size: 20px;
@@ -1724,6 +1746,11 @@ table {
     }
 
     &--checked {
+        background: url("../images/road-bg.png") center no-repeat;
+        color: #fff;
+        .road-map-item__title {
+            font-weight: 400;
+        }
         .road-map-item__status {
             background: $primary-color;
             span {
