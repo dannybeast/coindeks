@@ -159,8 +159,11 @@ a {
                 &.has-podmenu {
                     & > a {
                         position: relative;
+                        pointer-events: none;
                         &:after {
                             transform: rotate(45deg) translateY(-50%);
+                            transition: all 0.2s ease;
+                            transform-origin: center;
                             border-color: #7970ab;
                             border-style: solid;
                             border-width: 0 1px 1px 0;
@@ -176,10 +179,19 @@ a {
                             right: 15px;
                         }
                     }
+
+                    &.is-open {
+                        & > a {
+                            &:after {
+                                transform: rotate(226deg) translateY(-50%);
+                            }
+                        }
+                    }
                 }
                 & > ul {
                     background: #221937;
                     padding: 30px 0;
+                    display: none;
                     & > li {
                         margin: 0 0 10px 0;
                         &:last-child {

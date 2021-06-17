@@ -39,77 +39,6 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 $(document).ready(function () {
 
-  animText();
-  // mega menu
-  var timeline = new TimelineLite({
-    paused: true
-  });
-  let menu = $('.mega-menu');
-  var open = false;
-
-  TweenMax.set(menu, {
-    x: '120%'
-  });
-
-  TweenMax.set(menu.find('.mega-menu__row'), {
-    x: '30%'
-  });
-
-  TweenMax.set(menu.find('.mega-menu__top, .mega-menu__right'), {
-    opacity: 0
-  });
-
-  TweenMax.set(menu.find('.icon-list li'), {
-    x: 50,
-    opacity: 0
-  });
-
-  TweenMax.set(menu.find('.mega-menu__nav li'), {
-    x: 50,
-    opacity: 0
-  });
-
-  timeline
-    .to(menu, 0.6, {
-      x: '0%'
-    }).to(menu.find('.mega-menu__row'), 0.5, {
-      x: '0%',
-      ease: Back.easeOut
-    }, '-=0.3')
-    .to(menu.find('.mega-menu__top, .mega-menu__right'), 0.5, {
-      opacity: 1
-    }, '-=0.3')
-    .to(menu.find('.icon-list li'), 0.2, {
-      x: 0,
-      opacity: 1,
-      stagger: {
-        each: 0.1,
-      }
-    }, '-=0.5')
-    .to(menu.find('.mega-menu__nav li'), 0.2, {
-      x: 0,
-      opacity: 1,
-      stagger: {
-        each: 0.1,
-      }
-    }, '-=0.5')
-
-  $('.bar__menu-btn').click(function () {
-    $(this).find('.hamburger').toggleClass('is-active')
-
-    if (open) {
-      timeline.reverse();
-      open = false;
-    } else {
-      timeline.play();
-      open = true;
-    }
-
-  });
-
-  //-
-
-
   sliders();
   mobileNavigation();
   dropdown();
@@ -120,26 +49,6 @@ $(document).ready(function () {
   $('.js-current-year').html(currentYear);
   //
 
-  // Reviews
-  $('.js-show-reviews').click(function () {
-    $('.reviews__hidden').slideToggle();
-    let textShow = $(this).data('text-show');
-    let textHide = $(this).data('text-hide');
-    $(this).find('span:first-child').toggleText(textShow, textHide);
-
-
-    gsap.registerPlugin(ScrollToPlugin)
-    gsap.to(window, 0.3, {
-      scrollTo: {
-        y: '.reviews',
-        offsetY: 0
-      },
-      ease: 'power2',
-    })
-
-
-  })
-  //
 
   // Accordion
   for (const e of document.querySelectorAll('[data-accordion="trigger"]')) {
@@ -158,24 +67,43 @@ $(document).ready(function () {
     $('body').addClass('is-page-index')
   }
 
-
-
-//
-$(".labels-list__button").click(function(){
-  let val = +$(this).data('val');
-
-
-  $(this).parents('.block-yellow').find('input').val(val)
-
-
-})
-
 //
 
 
 
   hideLoader();
   animations();
+
+
+  $('.header__nav > ul > li').each(function () {
+    if($(this).find('ul').length){
+      $(this).addClass('has-podmenu')
+    }
+  })
+  $('.mobile-menu__nav > ul > li').each(function () {
+    if($(this).find('ul').length){
+      $(this).addClass('has-podmenu')
+    }
+  })
+
+
+  $('body').on('click', '.has-podmenu', function(){
+    $(this).toggleClass('is-open')
+
+    $(this).find('ul').slideToggle()
+
+  })
+
+let dropdownElement= document.querySelectorAll('.header__nav .has-podmenu');
+  document.addEventListener('click', e => {
+    dropdownElement.forEach(element => {
+        if (!element.contains(e.target)) {
+            element.classList.remove('is-open');
+            $(element).find('ul').slideOut()
+        }
+    })
+});
+
 
 })
 
