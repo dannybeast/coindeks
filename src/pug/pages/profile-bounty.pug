@@ -1,0 +1,43 @@
+extends ../layout/profile
+
+block variables
+    - var title = 'Coindeks – Profile bounty';
+    - var description = '';
+    - var pageName = 'bounty';
+    - var pageType = 'profile';
+block content
+
+    +b.SECTION
+        mixin tr(index)
+            tr
+                td Bitcoin
+                td 157% for 131 days
+                td 
+                    strong 0.001 BTC
+                td 
+                    strong 0.125 BTC
+                td 22 Februrary 2021
+                td 
+                    strong 123
+
+        .container
+            +b.H3.title(class="--small") Your Deposits List
+
+            +b.block.table-filter-hidden
+                table.js-datatables.responsive.nowrap(
+                    data-page-length="10" )
+                    thead
+                        tr
+                            th Currency
+                            th Percent
+                            th Amount
+                            th Profit
+                            th Next accural
+                            th Days of work
+                    tbody
+                        each val in [1, 2, 3, 4, 5,6,7,8,9]
+                            +tr(val)
+
+block script
+    //-script(src="assets/js/vendors.js")
+    script(src="assets/js/app.js")

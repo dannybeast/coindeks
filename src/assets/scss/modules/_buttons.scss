@@ -40,6 +40,19 @@
             background: $primary-color;
         }
     }
+    &--transparent {
+        background: transparent;
+        color: #918c9b;
+        svg {
+            fill: #918c9b;
+        }
+        &:hover {
+            color: #fff;
+            svg {
+                fill: #fff;
+            }
+        }
+    }
     &--white {
         background: #fff;
         color: #000;
