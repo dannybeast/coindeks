@@ -7,36 +7,145 @@ block variables
     - var pageType = 'profile';
 block content
 
+    +b.breadcrumbs 
+        .container
+            a(href="profile-account.html") Account 
+            +e.SPAN.separator / 
+            span Bounty  
+            
     +b.SECTION
         mixin tr(index)
             tr
-                td Bitcoin
-                td 157% for 131 days
+                td #{index}
                 td 
-                    strong 0.001 BTC
+                    +b.P.username USERNAME
                 td 
-                    strong 0.125 BTC
-                td 22 Februrary 2021
-                td 
-                    strong 123
-
+                    if index === 1
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/coindeks.svg", alt="")
+                                +e.P.name Cry 
+                    else if index === 2
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/usdt.svg", alt="")
+                                +e.P.name usdt 
+                    else if index === 3
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/usd-coin-usdc-logo.svg", alt="")
+                                +e.P.name usdc
+                  
+                    else if index === 4
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/dai.svg", alt="")
+                                +e.P.name dai 
+                    else if index === 5
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/eth.svg", alt="")
+                                +e.P.name eth 
+                    else
+                        +b.earned
+                            +b.P.price 15,123.4331
+                            +b.token-item
+                                +e.icon 
+                                    img(src="assets/images/icons/dai.svg", alt="")
+                                +e.P.name dai 
         .container
-            +b.H3.title(class="--small") Your Deposits List
+            // block
+            +b.profile-block
+                +b.H3.title Bounty
+                
+                +b.bounty 
+                    +b.field.js-copy
+                        label Your Referral Link
+                        +e.group
+                            input(type="text" name="username" value="http://localhost:9000/profile-bounty.html").js-copy-input
+                            +e.icon.js-copy-button.is-pointer
+                                +icon('copy')
+            +b.profile-block
+                +b.H3.title Referral List
 
-            +b.block.table-filter-hidden
-                table.js-datatables.responsive.nowrap(
-                    data-page-length="10" )
-                    thead
-                        tr
-                            th Currency
-                            th Percent
-                            th Amount
-                            th Profit
-                            th Next accural
-                            th Days of work
-                    tbody
-                        each val in [1, 2, 3, 4, 5,6,7,8,9]
-                            +tr(val)
+                +b.block.table-filter-hidden
+                    table.js-datatables.responsive.nowrap(
+                        data-page-length="10" ordering="true")
+                        thead
+                            tr
+                                th Number
+                                th Username
+                                th Earned
+                        tbody
+                            each val in [1, 2, 3, 4, 5, 6]
+                                +tr(val)
+            // block
+            +b.profile-block
+                +b.H3.title Banners and Logos
+
+
+                +b.banners 
+                    +e.row
+                        
+                        +e.col(class="--size-6")
+                            +b.banner-item 
+                                +e.image
+                                    img(src="assets/images/banners/banner.png", alt="")
+                                +e.bottom
+                                    +e.P.name 495x160 <span>Gif animated</span>
+                                    +e.A(href="#" download).link Download link
+                        
+                        +e.col(class="--size-6")
+                            +b.banner-item(class="--logos")
+                                +e.image
+                                    img(src="assets/images/banners/logos.png", alt="")
+                                +e.bottom
+                                    +e.P.name Logotypes <span>SVG, AI, PNG</span>
+                                    +e.A(href="#" download).link Download archive
+
+                        +e.col(class="--size-12")
+                            +b.banner-item 
+                                +e.image
+                                    img(src="https://dummyimage.com/967x160/ededed/ededed", alt="")
+                                +e.bottom
+                                    +e.P.name 967x60 <span>Gif animated</span>
+                                    +e.A(href="#" download).link Download link
+                        
+                        +e.col(class="--size-12")
+                            +b.banner-item 
+                                +e.image
+                                    img(src="https://dummyimage.com/967x97/ededed/ededed", alt="")
+                                +e.bottom
+                                    +e.P.name 967x97 <span>Gif animated</span>
+                                    +e.A(href="#" download).link Download link
+                        
+                        
+                        +e.col(class="--size-4")
+                            +b.banner-item 
+                                +e.image
+                                    img(src="https://dummyimage.com/253x266/ededed/ededed", alt="")
+                                +e.bottom
+                                    +e.P.name 253x266 <span>Gif animated</span>
+                                    +e.A(href="#" download).link Download link
+                        
+                        +e.col(class="--size-8")
+                            +b.banner-item 
+                                +e.image
+                                    img(src="https://dummyimage.com/643x266/ededed/ededed", alt="")
+                                +e.bottom
+                                    +e.P.name 643x266 <span>Gif animated</span>
+                                    +e.A(href="#" download).link Download link
+
 
 block script
     //-script(src="assets/js/vendors.js")

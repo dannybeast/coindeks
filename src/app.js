@@ -23,7 +23,6 @@ import Modal from "./js/modules/modals";
 import sliders from "./js/modules/sliders";
 import animations from "./js/modules/animations";
 import datatables from "./js/modules/datatables";
-import animText from "./js/modules/animText";
 import "autoresize-textarea";
 import  "./js/modules/awesome-notifications";
 import "./js/modules/materialInputs";
@@ -49,7 +48,6 @@ $(document).ready(function () {
   $('.js-current-year').html(currentYear);
   //
 
-
   // Accordion
   for (const e of document.querySelectorAll('[data-accordion="trigger"]')) {
     const newAccordion = new Accordion(e);
@@ -57,15 +55,6 @@ $(document).ready(function () {
   }
 
   window.Modal = new Modal();
-
-  $(".js-textarea").autoResize();
-
-  $(".scrollbar-inner").scrollbar();
-
-
-  if ($('.intro').length) {
-    $('body').addClass('is-page-index')
-  }
 
 //
 
@@ -75,34 +64,63 @@ $(document).ready(function () {
   animations();
 
 
-  $('.header__nav > ul > li').each(function () {
-    if($(this).find('ul').length){
-      $(this).addClass('has-podmenu')
-    }
-  })
-  $('.mobile-menu__nav > ul > li').each(function () {
-    if($(this).find('ul').length){
-      $(this).addClass('has-podmenu')
-    }
-  })
-
-
-  $('body').on('click', '.has-podmenu', function(){
-    $(this).toggleClass('is-open')
-
-    $(this).find('ul').slideToggle()
-
-  })
-
-let dropdownElement= document.querySelectorAll('.header__nav .has-podmenu');
-  document.addEventListener('click', e => {
-    dropdownElement.forEach(element => {
-        if (!element.contains(e.target)) {
-            element.classList.remove('is-open');
-            $(element).find('ul').slideOut()
-        }
+ // pormenu
+    $('.header__nav > ul > li').each(function () {
+      if($(this).find('ul').length){
+        $(this).addClass('has-podmenu')
+      }
     })
-});
+    $('.mobile-menu__nav > ul > li').each(function () {
+      if($(this).find('ul').length){
+        $(this).addClass('has-podmenu')
+      }
+    })
+
+
+    $('body').on('click', '.has-podmenu', function(){
+      $(this).toggleClass('is-open')
+
+      $(this).find('ul').slideToggle()
+
+    })
+
+  let dropdownElement= document.querySelectorAll('.header__nav .has-podmenu');
+    document.addEventListener('click', e => {
+      dropdownElement.forEach(element => {
+          if (!element.contains(e.target)) {
+              element.classList.remove('is-open');
+              $(element).find('ul').slideOut()
+          }
+      })
+  });
+
+  //-
+
+  $('.field__cross').click(function(){
+    $(this).parents('.field').find('input').val('')
+    classesCrossField();
+  })
+  $('.field__cross').parents('.field').keyup(function(){
+    classesCrossField();
+  })
+  
+  classesCrossField();
+
+  function classesCrossField(){
+    $('.field__cross').each(function(){
+      let field = $(this).parents('.field')
+      let val = field.find('input').val()
+      if(!val){
+        field.removeClass('is-has-value')
+      }else{
+        field.addClass('is-has-value')
+      }
+
+    })
+   
+
+  }
+
 
 
 })

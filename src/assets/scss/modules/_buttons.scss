@@ -73,6 +73,15 @@
             color: #fff;
         }
     }
+    &--dark {
+        background: #241b39;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+            background: lighten(#241b39, 10%);
+        }
+    }
 
     &--line-gray {
         background: transparent;
@@ -112,8 +121,8 @@
     // Sizes
     &--small {
         font-size: 13px;
-        padding: 0 15px;
-        height: 40px;
+        padding: 0 25px;
+        height: 35px;
         svg {
             width: 12px;
             height: 12px;

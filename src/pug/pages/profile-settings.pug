@@ -1,78 +1,251 @@
 extends ../layout/profile
 
 block variables
-    - var title = 'Ybot.trade – Profile settings';
+    - var title = 'Coindeks – Profile settings';
     - var description = '';
     - var pageName = 'settings';
     - var pageType = 'profile';
 block content
-    form
-        +b.SECTION.form-section
-            .container
-                +b.H1.title Settings 
 
-        
-                +b.field(class="--horizontal")
-                    label Your e-mail:
-                    input(type="text" name="email" disabled value="Username123@gmail.com")
-                +b.field(class="--horizontal")
-                    label Your login:
-                    input(type="text" name="login" disabled value="Username123")
+    +b.breadcrumbs 
+        .container
+            a(href="profile-account.html") Account 
+            +e.SPAN.separator / 
+            span Settings  
+    
+    +b.SECTION
+        .container
+            form
+                // block
+                +b.profile-block
+           
+                    +b.H1.title Settings 
 
-        +b.SECTION.form-section
-            .container
-                +b.H3.title(class="--small") Change Password 
+                    +b.profile-form
+                        +e.row
+                            +e.col(class="--size-6")
+                                +b.field.js-copy
+                                    label Your Username:
+                                    +e.group
+                                        input(type="text" name="username" placeholder="Username").js-copy-input
+                                        +e.icon.js-copy-button.is-pointer
+                                            +icon('copy')
+                            +e.col(class="--size-6")
+                                +b.field
+                                    label Your E-mail:
+                                    input(type="text" name="email" placeholder="Address")
+                            
+                    
+                // block
+                +b.profile-block
+                    +b.H3.title Change Password 
+                    
+                    +b.profile-form
+                        +e.row
+                            +e.col(class="--size-12")
+                                +b.field
+                                    label Enter Old password
+                                    input(type="password" name="old_password" placeholder="******")
+                            +e.col(class="--size-6")
+                                +b.field
+                                    label Enter New password
+                                    input(type="password" name="new_password" placeholder="******")
+                            +e.col(class="--size-6")
+                                +b.field
+                                    label Re-Enter New Password
+                                    input(type="password" name="repeat_password" placeholder="******")
 
-        
-                +b.field(class="--horizontal") 
-                    label Old password
-                    input(type="password" name="old_password")
-                +b.field(class="--horizontal") 
-                    label New password
-                    input(type="password" name="new_password")
-                +b.field(class="--horizontal") 
-                    label Once again
-                    input(type="password" name="repeat_password")
+                    +b.BUTTON.btn(class="--primary") Save changes
 
-        +b.SECTION.form-section
-            .container
-                +b.H3.title(class="--small") Your Payout Wallets
+                // block
+                +b.profile-block
+                        +b.H3.title Wallets
+                        +b.profile-form.wallets-wrapper
+                            +b.field
+                                label Coindeks Wallet
+                                +e.group
+                                    input(type="text" name="coindeks" placeholder="Add your wallet" value="2x234jklsfnjojrfn9389j34f9834j9843nfj76h7676")
+                                    +e.icon 
+                                        img(src="assets/images/icons/coindeks.svg", alt="" )
+                                    +e.cross
+                                        +icon('cross')
 
-                +b.field(class="--horizontal") 
-                    label USDT
-                    input(type="text" name="usdt")
-                +b.field(class="--horizontal") 
-                    label DAI
-                    input(type="text" name="dai")
-                +b.field(class="--horizontal") 
-                    label Bitcoin
-                    input(type="text" name="bitcoin")
-                +b.field(class="--horizontal") 
-                    label Ethereum
-                    input(type="text" name="ethereum")
-                +b.field(class="--horizontal") 
-                    label Xrp
-                    input(type="text" name="xrp")
-                +b.field(class="--horizontal") 
-                    label Doge
-                    input(type="text" name="doge")
-                +b.field(class="--horizontal") 
-                    label Litecoin
-                    input(type="text" name="litecoin")
-                +b.field(class="--horizontal") 
-                    label UniSwap
-                    input(type="text" name="uniSwap")
-                +b.field(class="--horizontal") 
-                    label LINK 
-                    input(type="text" name="link")
-                +b.field(class="--horizontal") 
-                    label Aave
-                    input(type="text" name="aave")
+                            +b.field
+                                label USDT Wallet
+                                +e.group
+                                    input(type="text" name="usdt" placeholder="Add your wallet" value="2x234jklsfnjojrfn9389j34f9834j9843nfj76h7676")
+                                    +e.icon 
+                                        img(src="assets/images/icons/usdt.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label USDC Coin Wallet
+                                +e.group
+                                    input(type="text" name="usdc" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/usd-coin-usdc-logo.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Dai Wallet
+                                +e.group
+                                    input(type="text" name="dai" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/dai.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            +b.field
+                                label Gemini dollar Wallet
+                                +e.group
+                                    input(type="text" name="gusd" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/gusd.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Etherium Wallet
+                                +e.group
+                                    input(type="text" name="eth" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/eth.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Wrapped Ether Wallet
+                                +e.group
+                                    input(type="text" name="weth" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/weth.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            +b.field
+                                label Bitcoin Wallet
+                                +e.group
+                                    input(type="text" name="btc" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/btc.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Polygon Wallet
+                                +e.group
+                                    input(type="text" name="matic" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/matic.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Sushi Swap Wallet
+                                +e.group
+                                    input(type="text" name="sushi" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/sushi.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            +b.field
+                                label Aave Wallet
+                                +e.group
+                                    input(type="text" name="aave" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/aave.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Unicorn Wallet
+                                +e.group
+                                    input(type="text" name="unicorn" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/unicorn.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Wrapped Bitcoin Wallet
+                                +e.group
+                                    input(type="text" name="wbtc" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/wbtc.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            +b.field
+                                label Compound Wallet
+                                +e.group
+                                    input(type="text" name="cpnd" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/cpnd.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Maker Wallet
+                                +e.group
+                                    input(type="text" name="maker" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/maker.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Synthetix Wallet
+                                +e.group
+                                    input(type="text" name="snx" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/snx.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
 
-                +b.BUTTON( class="btn --yellow-gr")
-                    span Save changes 
-                    +e.SPAN.icon-wrap
-                        +icon('001-right-arrow')
+                            +b.field
+                                label Curve DAO Token 
+                                +e.group
+                                    input(type="text" name="curve" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/curve.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                            
+                            +b.field
+                                label Kyber Network Crystal 
+                                +e.group
+                                    input(type="text" name="knc" placeholder="Add your wallet")
+                                    +e.icon 
+                                        img(src="assets/images/icons/knc.svg", alt="")
+                                    +e.cross
+                                        +icon('cross')
+                
+                // block
+                +b.profile-block
+                    +b.H3.title 2FA Settings
+                    
+                    form
+                        +b.settings-2fa 
+                            +e.row
+                                +e.col
+                                    +e.qr 
+                                        img(src="assets/images/qr.png", alt="")
+                                +e.col 
+                                    +b.field
+                                        label Authetificator Code
+                                        input(type="text" name="code_2fa")
+                            +e.row
+                                +e.col 
+
+                                    +b.typography 
+                                        p <strong>1. Scan this QR code</strong> with your Google Authenticator App. Alternatively, you can use the code: RLFJ6L42BAYJJWYZ
+
+                                        p 
+                                            strong 2. Enter the pin from Google Authenticator app:
+                                +e.col
+                                    +b.typography 
+                                        p Two factor authentication (2FA) strengthens access security by requiring two methods (also referred to as factors) to verify your identity. Two factor authentication protects against phishing, social engineering and password brute force attacks and secures your logins from attackers exploiting weak or stolen credentials.
+
+                            +b.BUTTON.btn(class="--primary") Save 2FA
 
 block script
   //-script(src="assets/js/vendors.js")

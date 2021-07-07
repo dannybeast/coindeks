@@ -7,51 +7,128 @@ block variables
     - var pageType = 'profile';
 block content
 
+    +b.breadcrumbs 
+        .container
+            a(href="profile-account.html") Account 
+            +e.SPAN.separator / 
+            span History  
    
     +b.SECTION
         mixin tr(index)
             tr
-                td 00#{index}
-                td Bitcoin
+                td #{index}
                 td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
+                    if index === 1
+                        p Top up
+                    else if index === 2
+                        p Withdraw offer
+                    else if index === 3
+                        p Referral bounty
+
+                    else 
+                        p Withdraw
+                td 15,322.323232
+                td 
+                    if index === 1
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/coindeks.svg", alt="")
+                            span Cryptodeks token
+                    else if index === 2
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/usdt.svg", alt="")
+                            span USDT Tether
+                    else if index === 3
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/usd-coin-usdc-logo.svg", alt="")
+                            span USDC Coin
+                    else if index === 4
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/dai.svg", alt="")
+                            span Dai
+                    else if index === 5
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/gusd.svg", alt="")
+                            span Gemini dollar
+                    else
+                        +b.payment-system
+                            +e.icon
+                                img(src="assets/images/icons/coindeks.svg", alt="")
+                            span Cryptodeks token
+
+                td 22/02/2022 15:44
                 td
-                    +b.status(class="--success") Compleated
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--danger") Delayed
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status Canceled
+                    if index === 1
+                        +b.status(class="--success") Accepted
+                    else if index === 2
+                        +b.status(class="--danger") Canceled
+                    else if index === 3
+                        +b.status(class="--gray") Compleated
+             
+                    else 
+                        +b.status Waiting
 
 
         .container
-            +b.H3.title(class="--small") Your Withdrawals List
 
-            +b.block.table-filter-hidden
-                table.js-datatables.responsive.nowrap(
-                    data-page-length="10" )
-                    thead
-                        tr
-                            th Num
-                            th Currency
-                            th Amount
-                            th Date
-                            th Status
-                    tbody
-                        each val in [1, 2, 3, 4, 5,6,7,8,9]
-                            +tr(val)
+            +b.profile-block
+
+                +b.H3.title History
+
+                +b.filter-module 
+                    +b.field 
+                        label Choose type 
+                        +b.LABEL.select 
+                            select()
+                                option(disabled selected) All types
+                                option Withdraw
+                                option Top up
+                                option Withdraw offer
+                                option Referral bounty
+                                option Staking
+                    
+                    +b.field 
+                        label Date
+                        +b.LABEL.select 
+                            select()
+                                option(disabled selected) All dates
+                         
+
+                    +b.field 
+                        label Sum
+                        +b.LABEL.select 
+                            select()
+                                option(disabled selected) All sums
+                             
+                    
+                    +b.field 
+                        label Status
+                        +b.LABEL.select 
+                            select()
+                                option(disabled selected) All statuses
+                                option Accepted
+                                option Canceled
+                                option Compleated
+                                option Waiting
+
+                +b.block.table-filter-hidden
+                    table.js-datatables.responsive.nowrap(
+                        data-page-length="6" ordering="true")
+                        thead
+                            tr
+                                th Number
+                                th Operation
+                                th Sum
+                                th System
+                                th Date 
+                                th Status
+                        tbody
+                            each val in [1, 2, 3, 4, 5,6,7,8,9]
+                                +tr(val)
 
 
 

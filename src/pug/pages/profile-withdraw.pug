@@ -7,52 +7,222 @@ block variables
     - var pageType = 'profile';
 block content
 
-   
-    +b.SECTION
-        mixin tr(index)
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--success") Compleated
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--danger") Delayed
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status Canceled
+    +b.breadcrumbs 
+        .container
+            a(href="profile-account.html") Account 
+            +e.SPAN.separator / 
+            span Withdraw  
 
+    +b.SECTION
 
         .container
-            +b.H3.title(class="--small") Your Withdrawals List
+            // block
+            +b.profile-block.withdraw-table
+                +b.H3.title Withdraw
 
-            +b.block.table-filter-hidden
-                table.js-datatables.responsive.nowrap(
-                    data-page-length="10" )
-                    thead
-                        tr
-                            th Num
-                            th Currency
-                            th Amount
-                            th Date
-                            th Status
-                    tbody
-                        each val in [1, 2, 3, 4, 5,6,7,8,9]
-                            +tr(val)
+                +b.block.table-filter-hidden.table-pagination-hidden
+                    table.js-datatables.responsive.nowrap(
+                        data-page-length="99999" ordering="true" order-col-index="1" order-col-type="desc" )
+                        thead
+                            tr
+                                th Token
+                                th Earned
+                                th.no-sorting
+                        tbody
+                            tr.is-active
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/coindeks.svg", alt="")
+                                        +e.P.name Cry 
+                                        +e.P.description CRYPTODEKS TOKEN
+                                td
+                                    +b.P.price 15,211.1231231
+                                td 
+                                    +b.BUTTON( class="btn --dark --small") Withdraw
+                            
+                            tr.is-active
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/tether.svg", alt="")
+                                        +e.P.name Usdt 
+                                        +e.P.description USDT Tether
+                                td
+                                    +b.P.price 15,211.1231231
+                                td 
+                                    +b.BUTTON( class="btn --dark --small") Withdraw
+                            tr.is-active
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/usd-coin-usdc-logo.svg", alt="")
+                                        +e.P.name Usdc 
+                                        +e.P.description USDC Coin
+                                td
+                                    +b.P.price 15,211.1231231
+                                td 
+                                    +b.BUTTON( class="btn --dark --small") Withdraw
+                            tr.is-active
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/dai.svg", alt="")
+                                        +e.P.name Dai 
+                                        +e.P.description Dai
+                                td
+                                    +b.P.price 15,211.1231231
+                                td 
+                                    +b.BUTTON( class="btn --dark --small") Withdraw
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/gusd.svg", alt="")
+                                        +e.P.name Gusd 
+                                        +e.P.description Gemini dollar
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/eth.svg", alt="")
+                                        +e.P.name Eth 
+                                        +e.P.description Etherium
+                                td
+                                    +b.P.price 0
+                                td 
+                            
 
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/weth.svg", alt="")
+                                        +e.P.name Weth 
+                                        +e.P.description Wrapped Ether 
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/btc.svg", alt="")
+                                        +e.P.name btc 
+                                        +e.P.description Bitcoin
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                         
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/matic.svg", alt="")
+                                        +e.P.name Matic 
+                                        +e.P.description Polygon
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/sushi.svg", alt="")
+                                        +e.P.name sushi 
+                                        +e.P.description Sushi Swap
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                     
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/aave.svg", alt="")
+                                        +e.P.name Aave 
+                                        +e.P.description Aave
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/unicorn.svg", alt="")
+                                        +e.P.name uni 
+                                        +e.P.description Unicorn
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/wbtc.svg", alt="")
+                                        +e.P.name wbtc 
+                                        +e.P.description Wrapped Bitcoin
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/maker.svg", alt="")
+                                        +e.P.name mkr 
+                                        +e.P.description Maker
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/snx.svg", alt="")
+                                        +e.P.name snx 
+                                        +e.P.description Synthetix
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/curve.svg", alt="")
+                                        +e.P.name crv 
+                                        +e.P.description Curve DAO Token 
+                                td
+                                    +b.P.price 0
+                                td 
+                            
+                            tr
+                                td 
+                                    +b.token-item
+                                        +e.icon 
+                                            img(src="assets/images/icons/knc.svg", alt="")
+                                        +e.P.name knc 
+                                        +e.P.description Kyber Network Crystal 
+                                td
+                                    +b.P.price 0
+                                td 
+                          
 
 
 block script

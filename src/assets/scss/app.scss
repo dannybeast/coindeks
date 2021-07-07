@@ -17,12 +17,12 @@
 @import "modules/_header";
 @import "modules/_footer";
 // @import "modules/_sticky";
-// @import "modules/_datatables";
+@import "modules/_datatables";
 // @import "modules/_modal";
 @import "modules/_accordion";
 
 @import "libs/scrollbar";
-// @import "libs/datepicker";
+@import "libs/datepicker";
 
 html,
 body {
@@ -1118,9 +1118,16 @@ sup {
     }
 }
 
+.table-pagination-hidden {
+    .dataTables_paginate {
+        display: none;
+    }
+}
+
 .profile-block {
     padding: 58px 97px;
     border: solid 1px #d9d8dd;
+    margin-bottom: -1px;
     @include md-block() {
         padding: 30px 30px;
     }
@@ -1135,6 +1142,62 @@ sup {
         margin-bottom: 53px;
         @include md-block() {
             margin-bottom: 30px;
+        }
+    }
+    .table-wrapper {
+        margin-left: -97px;
+        margin-right: -97px;
+        width: initial;
+        @include md-block() {
+            margin-left: -30px;
+            margin-right: -30px;
+        }
+        @include sm-block() {
+            margin-left: -$fields_sm;
+            margin-right: -$fields_sm;
+        }
+    }
+    table {
+        tbody {
+            tr {
+                &:first-child {
+                    td {
+                        padding-top: 20px;
+                    }
+                }
+            }
+        }
+        td,
+        th {
+            border: none;
+            padding: 15px 10px;
+            font-size: 14px;
+            &:first-child {
+                padding-left: 97px;
+                @include md-block() {
+                    padding-left: 30px;
+                }
+                @include sm-block() {
+                    padding-left: -$fields_sm;
+                }
+            }
+            &:last-child {
+                padding-right: 97px;
+                @include md-block() {
+                    padding-right: 30px;
+                }
+                @include sm-block() {
+                    padding-right: -$fields_sm;
+                }
+            }
+        }
+        th {
+            border-bottom: 1px solid #d9d8dd;
+            border-top: 1px solid #d9d8dd;
+            font-size: 12px;
+            color: #413b57;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
 }
@@ -1388,15 +1451,17 @@ sup {
 }
 
 .status {
-    font-weight: 500;
-    color: #7f7f7f;
     &--success {
-        color: #00c750;
+        color: #28bb97;
     }
     &--danger {
-        color: red;
+        color: #e14135;
+    }
+    &--gray {
+        color: #9b9b9b;
     }
 }
+
 table {
     strong {
         font-weight: 500;
@@ -1405,6 +1470,11 @@ table {
 
 .dataTables_info {
     display: none;
+}
+.sorting_desc,
+.sorting,
+.sorting_asc {
+    cursor: pointer;
 }
 
 .dataTables_paginate {
@@ -1420,24 +1490,24 @@ table {
     }
 
     .paginate_button {
-        color: #c0c0c0;
-        font-weight: 500;
-        font-size: 18px;
+        color: #fff;
+        background: #413b57;
+        font-weight: 400;
+        font-size: 15px;
         text-decoration: none;
-        width: 33px;
-        height: 33px;
+        width: 40px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         border: solid 2px transparent;
-        border-radius: 8px;
-        margin: 0 5px 0 0;
+        border-radius: 4px;
+        margin: 0 10px 0 0;
         &:hover {
-            color: #000;
+            background: lighten(#413b57, 5%);
         }
         &.current {
-            border-color: $primary-color;
-            color: #000;
+            background: $primary-color;
         }
     }
 }
@@ -2145,10 +2215,11 @@ table {
     &__icon {
         width: 58px;
         height: 58px;
-        border-radius: 50%;
-        overflow: hidden;
         flex-shrink: 0;
         margin-right: 30px;
+        img {
+            width: 100%;
+        }
         @include md-block() {
             margin-right: 15px;
         }
@@ -2236,5 +2307,323 @@ table {
     &__bottom {
         border-top: 2px solid #413b57;
         padding-top: 40px;
+    }
+}
+
+.filter-module {
+    display: flex;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: 80px;
+    @include md-block() {
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    & > * {
+        width: calc(25% - 30px);
+        margin-left: 15px;
+        margin-right: 15px;
+        @include md-block() {
+            width: calc(50% - 30px);
+            margin-bottom: 20px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        @include sm-block() {
+            width: calc(100% - 30px);
+        }
+    }
+}
+
+.price {
+    color: #8a8895;
+    white-space: nowrap;
+    font-weight: 700;
+}
+
+.token-item {
+    display: flex;
+    align-items: center;
+    &__icon {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 50px;
+        img {
+            width: 100%;
+        }
+    }
+    &__name {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8a8895;
+        font-size: 16px;
+        width: 50px;
+        margin-right: 20px;
+    }
+    &__description {
+        color: rgba(#adabb5, 0.7);
+        font-size: 14px;
+    }
+}
+
+.withdraw-table {
+    .is-active {
+        .price {
+            color: $primary-color;
+        }
+        .token-item {
+            &__name {
+                color: #413b57;
+            }
+            &__description {
+                color: #413b57b3;
+            }
+        }
+    }
+    table {
+        td,
+        th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.payment-system {
+    display: flex;
+    &__icon {
+        flex-shrink: 0;
+        margin-right: 15px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.profile-form {
+    margin-bottom: 60px;
+    @include md-block() {
+        margin-bottom: 30px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__row {
+        @include u-row-flex(90px);
+        margin-bottom: -30px;
+
+        @include md-block() {
+            @include u-row-flex(30px);
+        }
+    }
+    .field {
+        margin-bottom: 30px;
+    }
+    &__col {
+        @include u-col(90px);
+        @include md-block() {
+            @include u-col(30px);
+        }
+        &--size-6 {
+            @include u-size(6, 12, 90px);
+            @include md-block() {
+                @include u-size(6, 12, 30px);
+                @include sm-block() {
+                    @include u-size(12, 12, 30px);
+                }
+            }
+        }
+        &--size-12 {
+            @include u-size(12, 12, 90px);
+            @include md-block() {
+                @include u-size(12, 12, 30px);
+            }
+        }
+    }
+}
+
+.settings-2fa {
+    .btn {
+        margin-top: 10px;
+    }
+    &__row {
+        @include u-row-flex(70px);
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .typography {
+        font-weight: 300;
+        letter-spacing: -0.04em;
+        font-size: 17px;
+    }
+
+    &__qr {
+        @include sm-block() {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__col {
+        @include u-col(70px);
+        &:first-child {
+            @include u-size(5, 12, 70px);
+            @include md-block() {
+                @include u-size(6, 12, 70px);
+            }
+            @include sm-block() {
+                @include u-size(12, 12, 70px);
+            }
+        }
+        &:last-child {
+            @include u-size(7, 12, 70px);
+            @include md-block() {
+                @include u-size(6, 12, 70px);
+            }
+            @include sm-block() {
+                @include u-size(12, 12, 70px);
+            }
+        }
+    }
+}
+
+.wallets-wrapper {
+    .field {
+        @include md-block() {
+            margin-right: 40px;
+            .field__cross {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+.earned {
+    display: flex;
+    align-items: center;
+    .price {
+        color: $primary-color;
+        margin-right: 30px;
+    }
+    .token-item {
+        &__icon {
+            margin-right: 30px;
+        }
+        &__name {
+            color: #413b57;
+        }
+    }
+}
+
+.bounty {
+    input {
+        pointer-events: none;
+    }
+}
+
+.banner-item {
+    display: flex;
+    flex-direction: column;
+    &__image {
+        margin-bottom: 15px;
+        flex-grow: 1;
+        img {
+            width: 100%;
+        }
+    }
+    &__name {
+        color: #a9a8af;
+        margin-right: 15px;
+        span {
+            color: #413b57;
+        }
+    }
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        margin-bottom: -5px;
+        & > * {
+            margin-bottom: 5px;
+        }
+    }
+    &--logos {
+        .banner-item__image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px #ededed;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        img {
+            width: auto;
+        }
+    }
+}
+.banners {
+    margin-bottom: 60px;
+    .banner-item {
+        height: 100%;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__row {
+        @include u-row-flex(70px);
+        margin-bottom: -45px;
+        @include lg-block() {
+            @include u-row-flex(30px);
+        }
+    }
+
+    &__col {
+        @include u-col(70px);
+        margin-bottom: 45px;
+        @include lg-block() {
+            @include u-col(30px);
+        }
+        &--size-4 {
+            @include u-size(3.75, 12, 70px);
+            @include lg-block() {
+                @include u-size(3.6, 12, 30px);
+            }
+            @include sm-block() {
+                @include u-size(12, 12, 30px);
+            }
+        }
+        &--size-6 {
+            @include u-size(6, 12, 70px);
+            @include lg-block() {
+                @include u-size(6, 12, 30px);
+            }
+            @include sm-block() {
+                @include u-size(12, 12, 30px);
+            }
+        }
+        &--size-8 {
+            @include u-size(8.25, 12, 70px);
+            @include lg-block() {
+                @include u-size(8.4, 12, 30px);
+            }
+            @include sm-block() {
+                @include u-size(12, 12, 30px);
+            }
+        }
+        &--size-12 {
+            @include u-size(12, 12, 70px);
+            @include lg-block() {
+                @include u-size(12, 12, 30px);
+            }
+        }
     }
 }
