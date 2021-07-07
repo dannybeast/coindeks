@@ -7,54 +7,87 @@ block variables
     - var pageType = 'profile';
 block content
 
-   
-    +b.SECTION
-        mixin tr(index)
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--success") Compleated
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--danger") Delayed
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status Canceled
-
-
+    +b.breadcrumbs 
         .container
-            +b.H3.title(class="--small") Your Withdrawals List
+            a(href="profile-account.html") Account 
+            +e.SPAN.separator / 
+            span Staking  
 
-            +b.block.table-filter-hidden
-                table.js-datatables.responsive.nowrap(
-                    data-page-length="10" )
-                    thead
-                        tr
-                            th Num
-                            th Currency
-                            th Amount
-                            th Date
-                            th Status
-                    tbody
-                        each val in [1, 2, 3, 4, 5,6,7,8,9]
-                            +tr(val)
+    +b.SECTION
+        .container
+            // block
+            +b.profile-block
+                +b.H3.title My Staking
 
+                // item
+                +b.staking-item
+                    +e.top
+                        +e.icon
+                            img(src="assets/images/icons/cry.png", alt="")
+                        +e.P.icon-name Cry
+                        +e.P.description CRYPTODEKS TOKEN
+                        +e.UL.top-list 
+                            +e.LI
+                                strong.color-primary 400%
+                            +e.LI Flexible percent
+                    +e.bottom
+                        +e.UL.info 
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('calendar')
+                                    +e.content
+                                        +e.P.name Days in staking 
+                                        +e.P.value 102
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('clock')
+                                    +e.content
+                                        +e.P.name Days till finish
+                                        +e.P.value 78
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('wallet')
+                                    +e.content
+                                        +e.P.name.color-primary Earn
+                                        +e.P.value.color-primary 15,211.324422
 
-
+                // item
+                +b.staking-item
+                    +e.top
+                        +e.icon
+                            img(src="assets/images/icons/usdc.png", alt="")
+                        +e.P.icon-name Usdc
+                        +e.P.description Usdc coin
+                        +e.UL.top-list 
+                            +e.LI
+                                strong.color-primary 400%
+                            +e.LI Flexible percent
+                    +e.bottom
+                        +e.UL.info 
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('calendar')
+                                    +e.content
+                                        +e.P.name Days in staking 
+                                        +e.P.value 102
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('clock')
+                                    +e.content
+                                        +e.P.name Days till finish
+                                        +e.P.value 78
+                            +e.LI
+                                +b.info-item 
+                                    +e.icon 
+                                        +icon('wallet')
+                                    +e.content
+                                        +e.P.name.color-primary Earn
+                                        +e.P.value.color-primary 15,211.324422
 block script
     //-script(src="assets/js/vendors.js")
     script(src="assets/js/app.js")
