@@ -6,7 +6,18 @@ block variables
     - var pageName = 'support';
 
 block content
-   
+    
+    +b.SECTION.support-intro
+       .container
+        
+            +b.H3.title(class="--after --center") Out contacts
+            +b.page-description 
+                p 1- Paddenswick Road, LONDON, W6 0UB, UNITED KINGDOM
+             
+            a(href="mailto:moon@nigmas.finance" ).intro-contacts-item
+                +icon('email')
+                span moon@nigmas.finance  
+
     +b.SECTION.social-media
        .container
         
@@ -16,19 +27,19 @@ block content
             
             +b.UL.social-media-list
                 +e.LI
-                    +b.A(href="#" target="_blank" class="social-media-item")
+                    +b.A(href="http://t.me/ru3inu3ruin" target="_blank" class="social-media-item")
                         +e.P.subtitle Telegram 
                         +e.icon
                             +icon('telegram-line')
                         +e.P.link http://t.me/ru3inu3ruin
                 +e.LI
-                    +b.A(href="#" target="_blank" class="social-media-item")
+                    +b.A(href="http://t.me/ru3inu3ruin" target="_blank" class="social-media-item")
                         +e.P.subtitle Twitter 
                         +e.icon
                             +icon('twitter-line')
                         +e.P.link http://t.me/ru3inu3ruin
                 +e.LI
-                    +b.A(href="#" target="_blank" class="social-media-item")
+                    +b.A(href="http://t.me/ru3inu3ruin" target="_blank" class="social-media-item")
                         +e.P.subtitle YouTube 
                         +e.icon
                             +icon('youtube-line')
