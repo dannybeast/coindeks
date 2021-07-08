@@ -50,6 +50,11 @@ $field-border-radius: 8px;
         color: #413b57;
         font-weight: 700;
         height: 18px;
+        sup {
+            display: inline-block;
+            vertical-align: top;
+            font-size: 0.9em;
+        }
     }
 
     input,

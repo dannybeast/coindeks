@@ -6,35 +6,61 @@ block variables
     - var pageName = 'bounty';
 
 block content
-   
-    +b.SECTION.contacts
+    
+
+    +b.SECTION.bounty-intro.page-intro
        .container
-            +e.row 
+            +e.row
                 +e.col
-                    +e.content
-                        +b.H5.subtitle Contact us
-                        +b.H3.title Contact us now
-                        +b.typography 
-                            p 
-                                strong 
-                                    big Your friend sends the balance of USDT 10,000 to trade.
-                +e.col 
-                    +b.FORM.contacts-form 
-                        +e.row 
-                            +b.field(class="--material")
-                                input(type="text" name="name")
-                                label Name: 
-                            +b.field(class="--material")
-                                input(type="text" name="email")
-                                label E-mail: 
-                            +b.field(class="--material")
-                                input(type="text" name="message")
-                                label Message
-                        +e.bottom 
-                            +b.BUTTON( class="btn --yellow-gr")
-                                span Send your message
-                                +e.SPAN.icon-wrap
-                                    +icon('001-right-arrow') 
+                    +b.H3.title(class="--after --center") Invite<br> Friends
+                    +b.page-description 
+                        p Earn without investing. Invite to Coindeks.com and Earn More Together
+                    +e.buttons
+                        +b.A(href="#" class="btn --primary") Start Now!
+                +e.col
+                    +e.IMG(class="media" src="assets/images/scheme.svg", alt="")
+
+    +b.SECTION.bounty
+       .container 
+            +b.H3.title(class="--after --center") Coindeks.com bounty
+            +b.page-description 
+                p Coindesks.com is an innovative cryptocurrency platform that includes several sought-after investment products, such as:
+            
+            +b.UL.bounty-list
+                +e.LI
+                    +b.bounty-item
+                        +e.P.subtitle 01 
+                        +e.icon
+                            +icon('002-send')
+                        +e.description
+                            p Send $ < 1,000 worth of coins and get 50 USDT on your balance!
+                        +e.text
+                            p This money is available for withdrawal immediately.
+                +e.LI
+                    +b.bounty-item
+                        +e.P.subtitle 02
+                        +e.icon
+                            +icon('001-friends')
+                        +e.description
+                            p Invite a friend on your referral link, and if he uses a stacking service in the amount of < $1000 you will receive 50 USDT.
+                        +e.text
+                            p If your friend sends $ < 5000 worth of coins to the stack, you will receive 500USDT in your account.
+                +e.LI
+                    +b.bounty-item
+                        +e.P.subtitle 03
+                        +e.icon
+                            +icon('003-coins')
+                        +e.description
+                            pBUY CRY TOKEN in the amount of < $10,000, write to the mail crytoken@cryptodeks.com, and get 10% cashback on your balance in USDT coins.
+                        +e.text
+                            p Cashback is available for conclusion immediately after enrollment.
+    +b.SECTION.places
+       .container 
+            +e.H3.title Places Left:
+            +e.P.value 57 <span>/ 300</span>
+            +e.description
+                p This bounty item is available to the first 300 investors who have written to the provided mail
+
 block script
   //-script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")
