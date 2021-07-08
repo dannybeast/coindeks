@@ -1,7 +1,7 @@
 .btn {
     padding: 0 30px;
     color: #000;
-    background-color: $border-base;
+    background-color: #cfceda;
     font-size: 14px;
     font-family: $mainFont;
     cursor: pointer;
@@ -38,6 +38,15 @@
         &:hover {
             color: #000;
             background: $primary-color;
+        }
+    }
+    &--gray {
+        background: #cfceda;
+        border: 2px solid transparent;
+        &:hover {
+            color: rgba(#221837, 0.5);
+            background: #fff;
+            border-color: #cfceda;
         }
     }
     &--transparent {

@@ -56,8 +56,7 @@ $(document).ready(function () {
 
   window.Modal = new Modal();
 
-//
-
+  //
 
 
   hideLoader();
@@ -123,7 +122,16 @@ $(document).ready(function () {
 
 
 
+  let $protocolInfo = $('.protocol-info');
+
+  if($protocolInfo.length){
+    $('body').addClass('is-profile-account')
+  }
+
 })
+
+
+
 
 
 

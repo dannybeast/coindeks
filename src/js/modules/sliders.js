@@ -66,4 +66,23 @@ export default function() {
     });
 
 
+    var swiperProtocol = new Swiper(".js-swiper-protocol", {
+      loop: false,
+      freeMode: true,
+      noSwiping: false,
+      spaceBetween: 30,
+      breakpoints: {
+        0: {
+          slidesPerView: 1.5, 
+        }, 
+        768: {
+          slidesPerView: 2.5,
+        },
+        1024: {
+          slidesPerView: 3,
+          noSwiping: true,
+        },
+      },
+    });
+
 }

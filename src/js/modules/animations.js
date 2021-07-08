@@ -48,6 +48,23 @@ export default function() {
    )
 );
 
+animate(".protocol-info", new TimelineLite()
+.fromTo(
+ ".protocol-info .title, .protocol-info__price, .protocol-info__description",
+ 1,
+ { y:15,autoAlpha: 0 },
+ {y:0, autoAlpha: 1 , ease: ease,stagger: {
+  each: 0.2,
+  } }
+).fromTo(
+   ".protocol-info .counter-item",
+   1,
+   { y:15, autoAlpha: 0 },
+   { y: 0, autoAlpha: 1 , ease: ease, stagger: {
+       each: 0.15,
+       } },"-=0.8"
+  )
+);
 
 
 animate(".faq", new TimelineLite()
