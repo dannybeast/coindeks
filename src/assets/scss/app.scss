@@ -451,9 +451,11 @@ section {
     &:hover {
         background: #726c88;
         color: #fff;
-        .blog-item__date,
         .blog-item__description {
             color: #fff;
+        }
+        .blog-item__date {
+            color: rgba(#fff, 0.5);
         }
         .blog-item__image {
             //padding: 0;
