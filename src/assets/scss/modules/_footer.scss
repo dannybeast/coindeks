@@ -83,6 +83,11 @@
     }
     &__logo {
         opacity: 0.2;
+        width: 100%;
+        max-width: 178px;
+        img {
+            width: 100%;
+        }
         transition: all 0.2s ease;
         &:hover {
             opacity: 1;
