@@ -23,40 +23,22 @@ html(lang='en')
       +b.auth-layout
 
         // Wrapper
-        +e.wrapper
-            +e.HEADER.header 
-                +e.A(href="index.html" class="logo")
-                    img(src="assets/images/logo/logo.svg", alt="")
-                +e.right 
-                
-                    +b.select-language(class='--gray').js-dropdown
-                        +e.A(class="link")
-                            span En
-                        +e.dropdown
-                            +e.UL
-                                +e.LI
-                                    +e.A(href="#") Ru
-                                +e.LI
-                                    +e.A(href="#") De
-                    if pageName === 'register'
-                        +b.A(href="login.html" class="btn --line-yellow --small")
-                            +icon('key')
-                            span Login
-                    else 
-                        +b.A(href="register.html" class="btn --yellow --small")
-                            +icon('user')
-                            span Registration
+        +e.row
             +e.ARTICLE.content
 
                 // Begin page
                 block content
                 // End page  
-            +e.FOOTER.footer 
-                p © <span class="js-current-year"></span>, ybot trade | All rights reserved
+            +e.right
+              +e.HEADER.header 
+                +e.A(href="index.html" class="logo")
+                    img(src="assets/images/logo/logo.png", alt="")
+            
+         
 
         
-        include ../includes/modules/_mobile-menu
+        //-include ../includes/modules/_mobile-menu
         
-      // Modals
+      //- Modals
       //-include ../includes/modals/calculator
     block script

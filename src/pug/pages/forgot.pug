@@ -1,7 +1,7 @@
 extends ../layout/login
 
 block variables
-    - var title = 'Ybot.trade – Forgot';
+    - var title = 'Coindeks – Восстановление пароль';
     - var description = '';
     - var pageName = 'login';
 
@@ -9,12 +9,7 @@ block content
 
     +b.sign 
         +e.top 
-            +e.H1.title Forgot
-            +e.UL.links 
-                +e.LI 
-                    +e.A(href="login.html") Sign In
-                +e.LI 
-                    +e.A(href="register.html") Sign up
+            +e.H1.title Восстановление пароля <span class="color-primary">Coindeks.com</span>
                 
         +e.content
             // 
@@ -23,20 +18,26 @@ block content
                 +e.row 
                 
                     +e.col(class="--12") 
-                        +b.field 
-                            label Email 
+                        +b.field(class="--error")
+                            label E-mail 
                             input(type="text" name="email")
+
                     +e.col(class="--12") 
-                        +b.field 
-                            label Pass of 2fa code
-                            input(type="text" name="pass_2fa")
+                        .captcha-wrapper
+                            +b.field 
+                                label Введите капчу
+                                input(type="password" name="captcha")
+
+                            +b.captcha 
+                                p 2JFGS75
         
                 //
                 +e.footer
-                    +b.BUTTON( class="btn --black")
-                        span Forgot password
-                        +e.SPAN.icon-wrap
-                            +icon('001-right-arrow')
+                    +b.BUTTON( class="btn --primary") Продолжить
+                
+                +e.footer
+                    +e.A(href="login.html" class="link") Войти в аккаунт
+                    p Еще нет аккаунта? <a href="register.html">Зарегистрироваться!</a>
 
 block script
   //-script(src="assets/js/vendors.js")

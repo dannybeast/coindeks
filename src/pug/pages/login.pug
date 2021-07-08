@@ -1,7 +1,7 @@
 extends ../layout/login
 
 block variables
-    - var title = 'Ybot.trade – Log In';
+    - var title = 'Coindeks – Авторизация';
     - var description = '';
     - var pageName = 'login';
 
@@ -9,12 +9,7 @@ block content
 
     +b.sign 
         +e.top 
-            +e.H1.title Log In 
-            +e.UL.links 
-                +e.LI 
-                    +e.A(href="register.html") Sign up
-                +e.LI 
-                    +e.A(href="forgot.html") Forgot password?
+            +e.H1.title Авторизация <span class="color-primary">Coindeks.com</span>
         +e.content
             // 
             form
@@ -23,26 +18,30 @@ block content
                 
                     +e.col(class="--12") 
                         +b.field(class="--error")
-                            label Username 
-                            input(type="text" name="username")
+                            label E-mail 
+                            input(type="text" name="email")
+
                     +e.col(class="--12") 
                         +b.field 
-                            label Pass of 2fa code
-                            input(type="text" name="pass_2fa")
+                            label Введите пароль
+                            input(type="password" name="password")
 
- 
+                    +e.col(class="--12") 
+                        .captcha-wrapper
+                            +b.field 
+                                label Введите капчу
+                                input(type="password" name="captcha")
 
-                    +e.col(class="--12")
-                        +b.LABEL.checkbox 
-                            input(type="checkbox" name="remember")
-                            span Remember me
+                            +b.captcha 
+                                p 2JFGS75
                     
                 //
                 +e.footer
-                    +b.BUTTON( class="btn --black")
-                        span Login
-                        +e.SPAN.icon-wrap
-                            +icon('001-right-arrow')
+                    +b.BUTTON( class="btn --primary") Продолжить
+                
+                +e.footer
+                    +e.A(href="forgot.html" class="link") Забыли пароль?
+                    p Еще нет аккаунта? <a href="register.html">Зарегистрироваться!</a>
 
 block script
   //-script(src="assets/js/vendors.js")
