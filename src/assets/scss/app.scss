@@ -2931,3 +2931,102 @@ table {
         }
     }
 }
+.contacts {
+    .title {
+        margin-bottom: 60px;
+    }
+}
+
+.social-media-item {
+    background: #ececf0;
+    padding: 30px 30px 40px;
+    border-radius: 8px;
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    @include md-block() {
+        font-size: 16px;
+    }
+    &__subtitle {
+        margin-bottom: 40px;
+        color: $primary-color;
+        font-size: 14px;
+    }
+    &__link {
+        line-height: 1.4;
+    }
+    &__icon {
+        width: 66px;
+        height: 66px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 40px;
+        svg {
+            width: inherit;
+            height: inherit;
+            fill: #bdbacb;
+        }
+    }
+}
+
+.social-media {
+    padding-bottom: 0;
+    .page-description {
+        margin-bottom: 80px;
+        @include sm-block() {
+            margin-bottom: 30px;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.social-media-list {
+    @include row-flex();
+    .social-media-item {
+        height: 100%;
+    }
+    li {
+        @include col();
+        @include size(4);
+        @include size-sm(12);
+        margin-bottom: 30px;
+        @include sm-block() {
+            margin-bottom: 10px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.contacts-form {
+    background: #ececf0;
+    padding: 100px 100px 60px;
+    border-radius: 8px;
+    @include sm-block() {
+        padding: 40px 30px 60px;
+    }
+    .field {
+        margin-bottom: 30px;
+        input,
+        textarea {
+            background: transparent;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .btn {
+        @include sm-block() {
+            width: 100%;
+        }
+    }
+    &__bottom {
+        margin-top: 40px;
+    }
+}

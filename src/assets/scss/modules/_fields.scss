@@ -145,6 +145,15 @@ $field-border-radius: 8px;
         justify-content: center;
         border-top-right-radius: $field-border-radius;
         border-bottom-right-radius: $field-border-radius;
+        svg {
+            fill: $primary-color;
+            width: 30px;
+        }
+        &:hover {
+            svg {
+                fill: #fff;
+            }
+        }
     }
 
     &--error {

@@ -1,0 +1,58 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Coindeks – Support';
+    - var description = '';
+    - var pageName = 'support';
+
+block content
+   
+    +b.SECTION.social-media
+       .container
+        
+            +b.H3.title(class="--after --center") Coindeks.com social media
+            +b.page-description 
+                p Coindesks.com is an innovative cryptocurrency platform that includes several sought-after investment products, such as:
+            
+            +b.UL.social-media-list
+                +e.LI
+                    +b.A(href="#" target="_blank" class="social-media-item")
+                        +e.P.subtitle Telegram 
+                        +e.icon
+                            +icon('telegram-line')
+                        +e.P.link http://t.me/ru3inu3ruin
+                +e.LI
+                    +b.A(href="#" target="_blank" class="social-media-item")
+                        +e.P.subtitle Twitter 
+                        +e.icon
+                            +icon('twitter-line')
+                        +e.P.link http://t.me/ru3inu3ruin
+                +e.LI
+                    +b.A(href="#" target="_blank" class="social-media-item")
+                        +e.P.subtitle YouTube 
+                        +e.icon
+                            +icon('youtube-line')
+                        +e.P.link http://t.me/ru3inu3ruin
+
+    
+    +b.SECTION.contacts
+       .container
+        
+            +b.H3.title(class="--after --center") Message us
+
+            +b.FORM.contacts-form 
+                +e.row 
+                    +b.field
+                        label Topic
+                        input(type="text" name="name")
+                    +b.field
+                        label E-mail<sup class="color-primary">*</sup>
+                        input(type="text" name="email" required)
+                    +b.field
+                        label Message<sup class="color-primary">*</sup>
+                        textarea(name="text" required)
+                +e.bottom 
+                    +b.BUTTON( class="btn --primary") Send Message
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

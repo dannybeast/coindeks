@@ -1,0 +1,40 @@
+extends ../layout/main
+
+block variables
+    - var title = 'Coindeks – Bounty';
+    - var description = '';
+    - var pageName = 'bounty';
+
+block content
+   
+    +b.SECTION.contacts
+       .container
+            +e.row 
+                +e.col
+                    +e.content
+                        +b.H5.subtitle Contact us
+                        +b.H3.title Contact us now
+                        +b.typography 
+                            p 
+                                strong 
+                                    big Your friend sends the balance of USDT 10,000 to trade.
+                +e.col 
+                    +b.FORM.contacts-form 
+                        +e.row 
+                            +b.field(class="--material")
+                                input(type="text" name="name")
+                                label Name: 
+                            +b.field(class="--material")
+                                input(type="text" name="email")
+                                label E-mail: 
+                            +b.field(class="--material")
+                                input(type="text" name="message")
+                                label Message
+                        +e.bottom 
+                            +b.BUTTON( class="btn --yellow-gr")
+                                span Send your message
+                                +e.SPAN.icon-wrap
+                                    +icon('001-right-arrow') 
+block script
+  //-script(src="assets/js/vendors.js")
+  script(src="assets/js/app.js")

@@ -25,7 +25,6 @@ import animations from "./js/modules/animations";
 import datatables from "./js/modules/datatables";
 import "autoresize-textarea";
 import  "./js/modules/awesome-notifications";
-import "./js/modules/materialInputs";
 import {
   gsap,
   TimelineLite,
