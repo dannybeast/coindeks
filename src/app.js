@@ -24,6 +24,7 @@ import sliders from "./js/modules/sliders";
 import animations from "./js/modules/animations";
 import datatables from "./js/modules/datatables";
 import "autoresize-textarea";
+import "./js/libs/datepicker";
 import  "./js/modules/awesome-notifications";
 import {
   gsap,
@@ -42,6 +43,7 @@ $(document).ready(function () {
   dropdown();
   copy();
   datatables();
+  $('.js-datepicker').datepicker();
   // Year
   let currentYear = new Date().getFullYear();
   $('.js-current-year').html(currentYear);

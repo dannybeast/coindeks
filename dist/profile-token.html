@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Coindeks – Profile token</title>
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/app.css">
+  </head>
+  <body>
+    <div class="loader"><img src="assets/images/spinner.svg" alt=""></div>
+    <main class="wrapper" id="app">
+      <!-- Profile layout-->
+      <div class="profile-layout">
+        <!-- Wrapper-->
+        <div class="profile-layout__wrapper">
+          <header class="header"> 
+            <div class="container"> 
+              <div class="header__row"><a class="header__logo" href="profile-account.html"><img src="assets/images/logo/logo.svg" alt=""></a>
+                <nav class="header__nav"> 
+                  <ul>
+                    <li><a href="profile-account.html">Account</a>
+                    </li>
+                    <li> <a href="profile-bounty.html">Bounty</a>
+                    </li>
+                    <li> <a href="profile-withdraw.html">Withdraw</a>
+                    </li>
+                    <li> <a href="profile-staking.html">Staking</a>
+                    </li>
+                    <li> <a href="profile-history.html">History</a>
+                    </li>
+                    <li> <a href="profile-settings.html">Settings	</a>
+                    </li>
+                    <li><a href="index.html">Logout</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div class="header__right"> <a class="btn btn--transparent btn--small" href="profile-account.html"><span>Username</span>
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-002-user"></use>
+                  </svg></a><a class="btn btn--white btn--small" href="index.html"><span>Logout</span>
+                  <svg class="svg-icon">
+                    <use href="assets/icons/sprite.svg#icon-001-key-with-hole"></use>
+                  </svg></a>
+                </div>
+              </div>
+            </div>
+          </header>
+          <article class="profile-layout__content">
+            <div class="page-section">
+              <!-- Begin page-->
+              <section>
+                <div class="container">
+                  <h3 class="title title--small">Your Withdrawals List
+                  </h3>
+                  <div class="block table-filter-hidden">
+                    <table class="js-datatables responsive nowrap" data-page-length="10">
+                      <thead>
+                        <tr>
+                          <th>Num</th>
+                          <th>Currency</th>
+                          <th>Amount</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>001</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>001</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>001</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>002</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>002</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>002</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>003</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>003</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>003</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>004</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>004</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>004</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>005</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>005</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>005</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>006</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>006</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>006</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>007</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>007</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>007</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>008</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>008</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>008</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>009</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--success">Compleated
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>009</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status status--danger">Delayed
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>009</td>
+                          <td>Bitcoin</td>
+                          <td><strong>0.000123 BTC</strong></td>
+                          <td>12:33:22   01.01.2022</td>
+                          <td>
+                            <div class="status">Canceled
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+              <!-- End page  -->
+            </div>
+          </article>
+          <footer class="footer"> 
+            <div class="container"> 
+              <div class="footer__top"> 
+                <div class="footer__top-col">
+                  <ul> 
+                    <li> 
+                      <h3 class="footer-title">Products 
+                      </h3>
+                    </li>
+                    <li> <a href="#">Knowledge base</a></li>
+                    <li> <a href="#">Legal Inquiries</a></li>
+                    <li> <a href="#">Status</a></li>
+                    <li> <a href="#">Videos</a></li>
+                    <li> <a href="#">Blog </a></li>
+                  </ul>
+                </div>
+                <div class="footer__top-col">
+                  <ul> 
+                    <li> 
+                      <h3 class="footer-title">Support 
+                      </h3>
+                    </li>
+                    <li> <a href="#">Knowledge base</a></li>
+                    <li> <a href="#">Legal Inquiries</a></li>
+                    <li> <a href="#">Status</a></li>
+                    <li> <a href="#">Videos</a></li>
+                    <li> <a href="#">Blog </a></li>
+                  </ul>
+                </div>
+                <div class="footer__top-col">
+                  <ul> 
+                    <li> 
+                      <h3 class="footer-title">Company 
+                      </h3>
+                    </li>
+                    <li> <a href="#">Knowledge base</a></li>
+                    <li> <a href="#">Legal Inquiries</a></li>
+                    <li> <a href="#">Status</a></li>
+                    <li> <a href="#">Videos</a></li>
+                    <li> <a href="#">Blog </a></li>
+                  </ul>
+                </div>
+                <div class="footer__top-col">
+                  <ul> 
+                    <li> 
+                      <h3 class="footer-title">Bounty 
+                      </h3>
+                    </li>
+                    <li> <a href="#">Knowledge base</a></li>
+                    <li> <a href="#">Legal Inquiries</a></li>
+                    <li> <a href="#">Status</a></li>
+                    <li> <a href="#">Videos</a></li>
+                    <li> <a href="#">Blog </a></li>
+                  </ul>
+                </div>
+                <div class="footer__top-col">
+                  <div class="follow"> 
+                    <ul>
+                      <li><a href="#" target="_blank">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-twitter"></use>
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-youtube"></use>
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-telegram"></use>
+                        </svg></a>
+                      </li>
+                      <li><a href="#" target="_blank">
+                        <svg class="svg-icon">
+                          <use href="assets/icons/sprite.svg#icon-lk"></use>
+                        </svg></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="footer__bottom"> 
+                <div class="footer__bottom-top"><a class="footer__logo" href="index.html"><img src="assets/images/logo/logo.svg" alt=""></a>
+                  <p class="footer__copyright">Copyright © <span class="js-current-year"></span> Coindeks Investments, Inc.<br> Exodus was co-founded by Daniel Castagnoli and JP Richardson.
+                  </p>
+                  <ul class="footer__bottom-links"> 
+                    <li><a href="policy.html">Privacy Policy</a>
+                    </li>
+                    <li><a href="terms.html">Terms of Service</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="typography"> 
+                  <p>Exodus is a software platform ONLY and does not conduct any independent diligence on or substantive review of any blockchain asset, digital currency, cryptocurrency or associated funds. You are fully and solely responsible for evaluating your investments, for determining whether you will exchange blockchain assets based on your own, and for all your decisions as to whether to exchange blockchain assets with Exodus. In many cases, blockchain assets you exchange on the basis of your research may not increase in value, and may decrease in value. Similarly, blockchain assets you exchange on the basis of your research may increase in value after your exchange.</p>
+                  <p>Past performance is not indicative of future results. Any investment in blockchain assets involves the risk of loss of part or all of your investment. The value of the blockchain assets you exchange is subject to market and other investment risks.</p>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <!-- Mobile menu-->
+        <div class="mobile-menu">
+          <div class="mobile-menu__top"> 
+            <!-- If auth--><a class="btn btn--primary btn--small" href="profile-account.html">
+            <svg class="svg-icon">
+              <use href="assets/icons/sprite.svg#icon-002-user"></use>
+            </svg><span>Username123</span></a>
+          </div>
+          <!-- If Auth-->
+          <nav class="mobile-menu__nav"> 
+            <ul>
+              <li><a href="profile-account.html">Account</a>
+              </li>
+              <li> <a href="profile-bounty.html">Bounty</a>
+              </li>
+              <li> <a href="profile-withdraw.html">Withdraw</a>
+              </li>
+              <li> <a href="profile-staking.html">Staking</a>
+              </li>
+              <li> <a href="profile-history.html">History</a>
+              </li>
+              <li> <a href="profile-settings.html">Settings	</a>
+              </li>
+              <li><a href="index.html">Logout</a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="mobile-menu__nav"> 
+            <ul>
+              <li><a href="products.html">Products </a>
+                <ul> 
+                  <li> <a href="#">Defi-staking</a></li>
+                  <li> <a href="#">Decentralized Exchange</a></li>
+                  <li> <a href="#">NFT marketplace</a></li>
+                  <li> <a href="#">Crypto Credit</a></li>
+                </ul>
+              </li>
+              <li><a href="support.html">Support</a></li>
+              <li><a href="company.html">Company</a></li>
+              <li><a href="bounty.html">Bounty</a></li>
+            </ul>
+          </nav>
+          <div class="follow"> 
+            <ul>
+              <li><a href="#" target="_blank">
+                <svg class="svg-icon">
+                  <use href="assets/icons/sprite.svg#icon-twitter"></use>
+                </svg></a>
+              </li>
+              <li><a href="#" target="_blank">
+                <svg class="svg-icon">
+                  <use href="assets/icons/sprite.svg#icon-youtube"></use>
+                </svg></a>
+              </li>
+              <li><a href="#" target="_blank">
+                <svg class="svg-icon">
+                  <use href="assets/icons/sprite.svg#icon-telegram"></use>
+                </svg></a>
+              </li>
+              <li><a href="#" target="_blank">
+                <svg class="svg-icon">
+                  <use href="assets/icons/sprite.svg#icon-lk"></use>
+                </svg></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Modals-->
+    </main>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
