@@ -11,11 +11,33 @@
                         a(href="products.html") Products 
                         ul 
                             li 
-                                a(href="#") Desktop Wallet
+                                +b.A(href="#" class="podmenu-item --icon-violet") 
+                                    +e.icon
+                                        +icon('002-cryptocurrency')
+                                    +e.content
+                                        +e.title Defi-staking
+                                        +e.description earn up to 60% per annum on cryptocurrency staking
                             li 
-                                a(href="#") Mobile Wallet
+                                +b.A(href="#" class="podmenu-item --icon-brown") 
+                                    +e.icon
+                                        +icon('001-exchange')
+                                    +e.content
+                                        +e.title Decentralized Exchange
+                                        +e.description coming soon
                             li 
-                                a(href="#") Trezor Hardware Wallet
+                                +b.A(href="#" class="podmenu-item --icon-pink") 
+                                    +e.icon
+                                        +icon('003-chip')
+                                    +e.content
+                                        +e.title NFT marketplace
+                                        +e.description coming soon
+                            li 
+                                +b.A(href="#" class="podmenu-item --icon-gray") 
+                                    +e.icon
+                                        +icon('004-discount')
+                                    +e.content
+                                        +e.title Crypto Credit
+                                        +e.description coming soon
 
                     li(class=( pageName === "support" ? " is-active" : undefined))
                         a(href="support.html") Support

@@ -7,34 +7,61 @@ block variables
 
 block content
    
-    +b.SECTION.contacts
+    +b.SECTION.about-intro.page-intro
        .container
-            +e.row 
-                +e.col
-                    +e.content
-                        +b.H5.subtitle Contact us
-                        +b.H3.title Contact us now
-                        +b.typography 
-                            p 
-                                strong 
-                                    big Your friend sends the balance of USDT 10,000 to trade.
-                +e.col 
-                    +b.FORM.contacts-form 
-                        +e.row 
-                            +b.field(class="--material")
-                                input(type="text" name="name")
-                                label Name: 
-                            +b.field(class="--material")
-                                input(type="text" name="email")
-                                label E-mail: 
-                            +b.field(class="--material")
-                                input(type="text" name="message")
-                                label Message
-                        +e.bottom 
-                            +b.BUTTON( class="btn --yellow-gr")
-                                span Send your message
-                                +e.SPAN.icon-wrap
-                                    +icon('001-right-arrow') 
+     
+            +b.H3.title(class="--after --center") About Cryptodeks.com
+
+            +b.page-description 
+                p More than 15 cryptocurrencies are available for staking<br> Earn <strong>up to 400%</strong> per annum on stacking 
+
+            +b.typography.page-intro__text
+                p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. 
+                p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to 
+                p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. 
+                p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryp
+
+    //
+    +b.SECTION.what-coindeks
+        .container
+            +b.H3.title(class="--after --center") Coindeks.com products
+
+            +b.page-description 
+                p Coindesks.com is an innovative cryptocurrency platform that includes several sought-after investment products, such as:
+
+            +e.slider
+                .swiper-container.js-what-slider.swiper-no-swiping
+                    .swiper-wrapper
+
+                        .swiper-slide 
+                            +b.what-item 
+                                +e.P.count 01
+                                +e.icon 
+                                    +icon('002-cryptocurrency')
+                                +e.P.name Defi<br> staking
+
+                        .swiper-slide 
+                            +b.what-item 
+                                +e.P.count 02
+                                +e.icon 
+                                    +icon('001-exchange')
+                                +e.P.name Decentralized<br> Exchange
+
+                        .swiper-slide 
+                            +b.what-item 
+                                +e.P.count 03
+                                +e.icon 
+                                    +icon('003-chip')
+                                +e.P.name NFT<br> marketplace
+
+                        .swiper-slide 
+                            +b.what-item 
+                                +e.P.count 04
+                                +e.icon 
+                                    +icon('004-discount')
+                                +e.P.name Crypto<br> credit
+
+              
 block script
   //-script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")
