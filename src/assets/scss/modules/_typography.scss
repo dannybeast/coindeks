@@ -145,7 +145,7 @@ li {
   li {
     position: relative;
     padding-left: 35px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 
     &:last-child {
       margin-bottom: 0;
@@ -153,10 +153,10 @@ li {
 
     &:before {
       content: "";
-      width: 15px;
+      width: 8px;
       height: 2px;
       display: block;
-      background: $primary-color;
+      background: #000;
       position: absolute;
       top: 0.75em;
       left: 0;
@@ -215,6 +215,7 @@ li {
   line-height: $base-line-height;
   font-family: $base-font-family;
   letter-spacing: normal;
+  font-weight: 300;
   @include sm-block() {
     font-size: 14px;
   }
@@ -222,16 +223,6 @@ li {
     &:first-child {
       margin-top: 0;
     }
-  }
-
-  &__text {
-    max-width: 1040px;
-    margin: 0 auto;
-    font-weight: 300;
-  }
-
-  &--center {
-    text-align: center;
   }
 
   small {
@@ -264,7 +255,10 @@ li {
   h5 {
     color: $mainFontColor;
     font-family: $mainFont;
-    font-weight: 700;
+    margin-bottom: 10px;
+    & + p {
+      margin-top: 0;
+    }
   }
 
   a {
