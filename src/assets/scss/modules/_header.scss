@@ -99,11 +99,11 @@
                 }
                 &.has-podmenu {
                     cursor: pointer;
-                    &:hover {
-                        a {
-                            opacity: 1;
-                        }
-                    }
+                    // &:hover {
+                    //     a {
+                    //         opacity: 1;
+                    //     }
+                    // }
                     & > a {
                         pointer-events: none;
                         &:after {
@@ -137,9 +137,9 @@
                     left: 50%;
                     transform: translateX(-50%);
                     min-width: 300px;
-                    background: #fff;
+                    background: rgba(#fff, 0.9);
                     padding: 15px 30px;
-                    border-radius: 5px;
+                    border-radius: 15px;
                     box-shadow: 0 4px 15px 0 #0000002e;
                     margin-top: 15px;
                     display: none;
@@ -147,7 +147,7 @@
                         content: "";
                         transform: translateX(-50%);
                         transition: all 10ms ease;
-                        border-bottom: 7px solid #fff;
+                        border-bottom: 7px solid rgba(#fff, 0.9);
                         border-left: 7px solid #0000;
                         border-right: 7px solid #0000;
                         display: block;
@@ -170,14 +170,13 @@
         a {
             display: block;
             color: #fff;
-            opacity: 0.8;
             text-decoration: none;
             font-size: 17px;
             font-weight: 300;
             padding: 8px 0;
             border-bottom: 2px solid transparent;
             &:hover {
-                opacity: 1;
+                color: #c2bfe2;
             }
         }
     }

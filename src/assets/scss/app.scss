@@ -3192,6 +3192,7 @@ table {
         column-count: 2;
         column-gap: 90px;
         color: #c2bfe2;
+        text-align: justify;
         font-size: 18px;
         font-weight: 300;
         @include md-block() {
@@ -3468,6 +3469,410 @@ table {
         }
         span {
             color: $primary-color;
+        }
+    }
+}
+
+.defi-staking {
+    background: #c9c6dd;
+}
+
+.credit {
+    background: #726c88;
+    color: #fff;
+}
+
+.decentralized {
+    background: #eeeef1;
+}
+
+.page-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 40px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @include sm-block() {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            max-width: 63%;
+            @include md-block() {
+                max-width: 80%;
+            }
+        }
+        @include sm-block() {
+            margin-bottom: 30px;
+        }
+    }
+    .typography {
+        font-size: 18px;
+        text-align: justify;
+        letter-spacing: -0.05em;
+        font-weight: 300;
+        @include sm-block() {
+            font-size: 16px;
+        }
+    }
+    .page-description {
+        text-align: left;
+        position: relative;
+        font-size: 26px;
+        @include md-block() {
+            font-size: 20px;
+        }
+        @include sm-block() {
+            text-align: center;
+        }
+        &:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background: #e14135;
+            display: block;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+    .title {
+        line-height: 1.2;
+        @include sm-block() {
+            text-align: center;
+        }
+    }
+    &__row {
+        @include u-row-flex(120px);
+        @include md-block() {
+            @include u-row-flex(60px);
+        }
+    }
+    &__col {
+        @include u-col(120px);
+        @include u-size(6, 12, 120px);
+        @include md-block() {
+            @include u-col(60px);
+            @include u-size(6, 12, 60px);
+        }
+        @include sm-block() {
+            @include u-size(12, 12, 60px);
+        }
+    }
+}
+
+.team-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+    &__image {
+        border-radius: 50%;
+        width: 195px;
+        height: 195px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin: 0 auto 30px;
+        @include to(1380px) {
+            width: 180px;
+            height: 180px;
+        }
+    }
+    &__subtitle {
+        color: #726c88;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    &__social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: auto;
+        li {
+            margin: 0 10px 10px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            svg {
+                width: 16px;
+                height: 16px;
+                fill: #726c88;
+            }
+            &:hover {
+                svg {
+                    fill: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+.team {
+    padding-top: 150px;
+    position: relative;
+    @include sm-block() {
+        padding-top: 60px;
+    }
+    .swiper-container {
+        overflow: visible;
+    }
+    .swiper-slide {
+        &:not(.swiper-slide-visible) {
+            opacity: 0;
+            @include sm-block() {
+                opacity: 1;
+            }
+        }
+        &.swiper-slide-visible {
+            opacity: 1;
+            transition: all 1s linear;
+        }
+    }
+    &__slider {
+        position: relative;
+        @include to(1380px) {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        @include sm-block() {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    &__arrow-prev,
+    &__arrow-next {
+        display: block;
+        position: absolute;
+        top: 90px;
+        z-index: 3;
+        cursor: pointer;
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        svg {
+            width: 39px;
+            height: 26px;
+            fill: $primary-color;
+        }
+        &:hover {
+            svg {
+                fill: rgb(24, 8, 42);
+            }
+        }
+        @include to(1380px) {
+            top: 80px;
+        }
+        @include sm-block() {
+            display: none;
+        }
+    }
+    &__arrow-next {
+        left: 100%;
+        margin-left: 50px;
+        @include to(1380px) {
+            margin-left: 0;
+            left: initial;
+            right: 0;
+        }
+    }
+    &__arrow-prev {
+        right: 100%;
+        margin-right: 50px;
+        @include to(1380px) {
+            margin-right: 0;
+            right: initial;
+            left: 0;
+        }
+
+        svg {
+            transform: scale(-1, 1);
+        }
+    }
+    .team-item {
+        height: 100%;
+        margin: 0 auto;
+    }
+    .swiper-wrapper,
+    .swiper-slide {
+        height: initial;
+    }
+}
+
+.document-element {
+    display: block;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.22);
+    transition: all 0.2s $anim;
+    &:hover {
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.32);
+        opacity: 0.9;
+    }
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.documents {
+    @include sm-block() {
+        padding-top: 30px;
+    }
+    &__slider {
+        position: relative;
+    }
+    &__arrow-prev,
+    &__arrow-next {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        cursor: pointer;
+        &.swiper-button-disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        svg {
+            width: 39px;
+            height: 26px;
+            fill: $primary-color;
+        }
+        &:hover {
+            svg {
+                fill: rgb(24, 8, 42);
+            }
+        }
+        @include sm-block() {
+            display: none;
+        }
+    }
+    &__arrow-next {
+        left: 100%;
+        margin-left: 50px;
+        @include to(1450px) {
+            left: initial;
+            right: 10px;
+            margin-left: 0;
+        }
+    }
+    &__arrow-prev {
+        right: 100%;
+        margin-right: 50px;
+        svg {
+            transform: scale(-1, 1);
+        }
+        @include to(1450px) {
+            right: initial;
+            left: 10px;
+            margin-right: 0;
+        }
+    }
+    .swiper-container {
+        overflow: visible;
+    }
+    .swiper-slide {
+        &:not(.swiper-slide-visible) {
+            opacity: 0;
+            @include sm-block() {
+                opacity: 1;
+            }
+        }
+        &.swiper-slide-visible {
+            opacity: 1;
+            transition: all 1s linear;
+        }
+    }
+    &__slider-wrapper {
+        padding: 40px 110px 100px;
+        overflow: hidden;
+        @include md-block() {
+            padding-left: 60px;
+            padding-right: 60px;
+            padding-bottom: 60px;
+        }
+        @include sm-block() {
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+            overflow: visible;
+        }
+    }
+    &__block {
+        border: solid 2px #726c88;
+        text-align: center;
+        @include to(1450px) {
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+        @include sm-block() {
+            border: none;
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    &__title {
+        text-align: center;
+        font-size: 64px;
+        font-weight: 300;
+        background: #fafafa;
+        display: inline-block;
+        vertical-align: top;
+        padding: 0 60px;
+        transform: translateY(-50%);
+        margin-bottom: 0;
+        @include md-block() {
+            font-size: 3.125rem;
+            margin-bottom: -20px;
+        }
+    }
+}
+
+.section-table {
+    @include sm-block() {
+        margin-left: -$fields_sm;
+        margin-right: -$fields_sm;
+        padding-left: $fields_sm;
+    }
+    th {
+        color: #413b57;
+        font-size: 12px;
+        padding: 0 10px 20px 10px;
+    }
+    th,
+    td {
+        border: none;
+        white-space: nowrap;
+    }
+    th {
+        border-bottom: 1px solid #adaac1;
+    }
+    .token-item {
+        &__name {
+            color: #413b57;
+        }
+        &__description {
+            color: #413b57;
+        }
+    }
+    tbody {
+        tr {
+            &:first-child {
+                td {
+                    padding-top: 30px;
+                }
+            }
         }
     }
 }

@@ -71,6 +71,7 @@ export default function() {
       freeMode: true,
       noSwiping: false,
       spaceBetween: 30,
+      
       breakpoints: {
         0: {
           slidesPerView: 1.5, 
@@ -84,5 +85,63 @@ export default function() {
         },
       },
     });
+
+
+    var swiperDocuments = new Swiper(".js-documents-slider", {
+      loop: false,
+      freeMode: true,
+      noSwiping: false,
+      spaceBetween: 100,
+      watchSlidesVisibility: true,
+      navigation: {
+        nextEl: document.querySelector('.documents [ref="next"]'),
+        prevEl: document.querySelector('.documents [ref="prev"]'),
+       },
+      breakpoints: {
+        0: {
+          slidesPerView: 1.5,  
+           spaceBetween: 15,
+        }, 
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 60,
+        },
+        1024: {
+          slidesPerView: 2, 
+          spaceBetween: 100,
+          noSwiping: true,
+        },
+      },
+    });
+
+    var swiperTeam = new Swiper(".js-team-slider", {
+      loop: false,
+      freeMode: true,
+      noSwiping: false,
+      spaceBetween: 40,    
+      watchSlidesVisibility: true,
+      navigation: {
+        nextEl: document.querySelector('.team [ref="next"]'),
+        prevEl: document.querySelector('.team [ref="prev"]'),
+       },
+      breakpoints: {
+        0: {
+          slidesPerView: 1.8, 
+        }, 
+        768: {
+          slidesPerView: 3,
+        }, 
+        1024: {
+          slidesPerView: 4,
+          noSwiping: true,
+        },
+        1204: {
+          slidesPerView: 5,
+          noSwiping: true,
+        },
+      },
+    });
+
+
 
 }
