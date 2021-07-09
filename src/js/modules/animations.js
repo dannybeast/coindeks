@@ -32,21 +32,41 @@ export default function() {
 
 
 
- animate(".intro", new TimelineLite()
+ animate(".bounty-intro ", new TimelineLite()
  .fromTo(
-  ".intro__bg",
+  ".bounty-intro .title, .bounty-intro .page-description, .bounty-intro__buttons",
   1,
-  { autoAlpha: 0 },
-  { autoAlpha: 1 , ease: ease }
+  { y:10,autoAlpha: 0 },
+  { y:0,autoAlpha: 1 , ease: ease, stagger: {
+    each: 0.2,
+    }  }
  ).fromTo(
-    ".intro__col",
+    ".bounty-intro__media",
     1,
     { y:10, autoAlpha: 0 },
-    { y: 0, autoAlpha: 1 , ease: ease, stagger: {
-        each: 0.2,
-        } },"-=0.5"
+    { y: 0, autoAlpha: 1 , ease: ease,},"-=0.8"
    )
 );
+
+
+
+
+animate(".intro", new TimelineLite()
+.fromTo(
+ ".intro__bg",
+ 1,
+ { autoAlpha: 0 },
+ { autoAlpha: 1 , ease: ease }
+).fromTo(
+   ".intro__col",
+   1,
+   { y:10, autoAlpha: 0 },
+   { y: 0, autoAlpha: 1 , ease: ease, stagger: {
+       each: 0.2,
+       } },"-=0.5"
+  )
+);
+
 
 animate(".protocol-info", new TimelineLite()
 .fromTo(
