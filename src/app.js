@@ -82,15 +82,15 @@ $(document).ready(function () {
 
     })
 
-  let dropdownElement= document.querySelectorAll('.header__nav .has-podmenu');
-    document.addEventListener('click', e => {
-      dropdownElement.forEach(element => {
-          if (!element.contains(e.target)) {
-              element.classList.remove('is-open');
-              $(element).find('ul').slideOut()
-          }
-      })
-  });
+  // let dropdownElement= document.querySelectorAll('.header__nav .has-podmenu');
+  //   document.addEventListener('click', e => {
+  //     dropdownElement.forEach(element => {
+  //         if (!element.contains(e.target)) {
+  //             element.classList.remove('is-open');
+  //             $(element).find('ul').slideOut()
+  //         }
+  //     })
+  // });
 
   //-
 

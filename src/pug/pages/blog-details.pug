@@ -7,34 +7,34 @@ block variables
 
 block content
    
-    +b.SECTION.contacts
-       .container
-            +e.row 
-                +e.col
-                    +e.content
-                        +b.H5.subtitle Contact us
-                        +b.H3.title Contact us now
-                        +b.typography 
-                            p 
-                                strong 
-                                    big Your friend sends the balance of USDT 10,000 to trade.
-                +e.col 
-                    +b.FORM.contacts-form 
-                        +e.row 
-                            +b.field(class="--material")
-                                input(type="text" name="name")
-                                label Name: 
-                            +b.field(class="--material")
-                                input(type="text" name="email")
-                                label E-mail: 
-                            +b.field(class="--material")
-                                input(type="text" name="message")
-                                label Message
-                        +e.bottom 
-                            +b.BUTTON( class="btn --yellow-gr")
-                                span Send your message
-                                +e.SPAN.icon-wrap
-                                    +icon('001-right-arrow') 
+    +b.SECTION.blog-details 
+        .container 
+            +e.image
+                img(src="assets/images/blog/blog-details.png", alt="")
+
+            +e.content
+                +e.content-top
+                    +e.H1.title Coindesks.com is an innovative sought-after cryptocurrency platform that includes several sought-after
+                    
+                    +e.date
+                        +e.date-content
+                            +e.P.day 22
+                            +e.P.month 02/2021
+                +b.typography
+                    p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. 
+                    p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to 
+                    p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. 
+                    p At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to subtle sounds, creating a cryptocurrency experience that works for everyone. At Exodus we pour our hearts into every detail, from pixel-perfect icons to 
+
+            +b.A(href="blog-details.html" class="blog-item")
+                +e.image
+                    img(src="assets/images/blog/blog-more.png", alt="") 
+                +e.content
+                    +e.P.date 22/02/2021
+                    +e.description
+                        p Coindesks.com is an innovative sought-after cryptocurrency platform that includes several sought-after
+                    +e.buttons
+                        +e.btn Read more
 block script
   //-script(src="assets/js/vendors.js")
   script(src="assets/js/app.js")

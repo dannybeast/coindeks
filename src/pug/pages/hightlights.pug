@@ -57,12 +57,12 @@ block content
                     +b.chart-item 
                         +b.H4.small-title Mina 8-years Circulating Supply
                         +e.content
-                            #chart-mina-8
+                            .chart-mina-8
                 +e.col
                     +b.chart-item 
                         +b.H4.small-title Mina Token Circulating Shedule
                         +e.content
-                            #chart-mina-token
+                            .chart-mina-8
 
 
     +b.SECTION.page-section
@@ -103,7 +103,7 @@ block content
                     +b.chart-item 
                         +b.H4.small-title Mina Token Circulating Shedule
                         +e.content
-                            #chart-mina-shedule
+                            .chart-mina-8
 
     +b.SECTION.charts
         .container
@@ -112,12 +112,12 @@ block content
                     +b.chart-item 
                         +b.H4.small-title Mina 8-years Circulating Supply
                         +e.content
-                            #chart-mina-circulating
+                            .chart-mina-circulating
                 +e.col
                     +b.chart-item 
                         +b.H4.small-title Mina Token Circulating Shedule
                         +e.content
-                            #chart-mina-circulating
+                            .chart-mina-circulating
 
     +b.SECTION.page-section
         .container
@@ -126,5 +126,74 @@ block content
                 p Vast majority of tokens in the Initial Supply are subject to protocol enforced lock-ups. Tokens held by the Mina Foundation and O(1) Labs Endowments are subject to self-enforced lockups, and both entities are committed to adhere to the unlock schedules in their respective sections below. Locked up tokens cannot be transferred out of their accounts, but can be staked or delegated. Accounts that enforce lock-up to tokens are called Time-locked accounts. By default, unlocking of lock-ups happens on a per-slot basis, but can be configured to occur periodically or via a cliff mechanism. As tokens unlock, they can be transferred to another account, or can be kept in the original account. If the owner of an account tries to transfer more tokens than unlocked, the transaction will fail. More about the unlock logic configurations can be found here.
 
 block script
-  //-script(src="assets/js/vendors.js")
+  script(src="https://cdn.jsdelivr.net/npm/apexcharts")
   script(src="assets/js/app.js")
+  script(type="text/javascript").
+    // chart doc - https://apexcharts.com/javascript-chart-demos/area-charts/basic/
+    // Chart type 1
+    var options = {
+        series: [{
+        name: 'series1',
+        data: [31, 40, 28, 51, 42, 109, 100]
+    }, {
+        name: 'series2',
+        data: [11, 32, 45, 32, 34, 52, 41]
+    }],
+        chart: {
+        height: 300,
+        type: 'area'
+    },
+    dataLabels: {
+        enabled: false
+    },
+    colors: ['#e54640', '#a0a0a0'],
+    stroke: {
+        curve: 'smooth'
+    },
+    xaxis: {
+        type: 'datetime',
+        categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+    },
+    tooltip: {
+        x: {
+        format: 'dd/MM/yy HH:mm'
+        },
+    },
+    };
+
+    document.querySelectorAll(".chart-mina-8").forEach(function(el){
+        console.log(el)
+        var chart = new ApexCharts(el, options);
+        chart.render();
+    })
+ 
+    // chart type 2
+
+     var options = {
+          series: [44, 55, 41, 17, 15],
+          chart: {
+             type: 'donut', 
+                height: 300
+            },
+            dataLabels: {
+            enabled: false
+            },
+            fill: {
+                type: 'gradient',
+            },
+            colors: ['#e54640', '#a0a0a0', '#504766', '#494058'],
+            responsive: [{
+            breakpoint: 480,
+            options: {
+                legend: {
+                position: 'bottom'
+                }
+            }
+            }]
+        };
+
+        document.querySelectorAll(".chart-mina-circulating").forEach(function(el){
+        console.log(el)
+        var chart = new ApexCharts(el, options);
+        chart.render();
+    })
