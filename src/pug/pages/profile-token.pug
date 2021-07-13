@@ -7,52 +7,74 @@ block variables
     - var pageType = 'profile';
 block content
 
-   
     +b.SECTION
-        mixin tr(index)
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--success") Compleated
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status(class="--danger") Delayed
-            tr
-                td 00#{index}
-                td Bitcoin
-                td
-                    strong 0.000123 BTC
-                td 12:33:22   01.01.2022
-                td
-                    +b.status Canceled
-
-
         .container
-            +b.H3.title(class="--small") Your Withdrawals List
+            // block
+            form
+                +b.profile-block
+                    +b.H3.title CRYPTODEKS TOKEN
 
-            +b.block.table-filter-hidden
-                table.js-datatables.responsive.nowrap(
-                    data-page-length="10" )
-                    thead
-                        tr
-                            th Num
-                            th Currency
-                            th Amount
-                            th Date
-                            th Status
-                    tbody
-                        each val in [1, 2, 3, 4, 5,6,7,8,9]
-                            +tr(val)
+                    // #1
+                    +b.crypto-token-wrapper
+                        +b.crypto-token
+                            +b.field 
+                                label USDT 
+                                input(type="number" name="amount" placeholder="Minimum amount 50 USDT")
+                            +e.UL.list 
+                                +e.LI
+                                    +b.LABEL.radio-button 
+                                        input(type="radio" name="amount" value="" checked)
+                                        span Min 
+                                +e.LI
+                                    +b.LABEL.radio-button
+                                        input(type="radio" name="amount" value="1000")
+                                        span $1,000 
+                                +e.LI
+                                    +b.LABEL.radio-button
+                                        input(type="radio" name="amount" value="5000")
+                                        span $5,000 
+                                +e.LI
+                                    +b.LABEL.radio-button
+                                        input(type="radio" name="amount" value="10000")
+                                        span $10,000 
+                                +e.LI
+                                    +b.LABEL.radio-button
+                                        input(type="radio" name="amount" value="50000")
+                                        span $50,000 
 
+                        +b.H3.title(class="--small") FAQ
+                        mixin faq-item(title)
+                            +e.LI.item
+                                +e.H4.title(data-accordion="trigger") 
+                                    span #{title}
+                                div(data-accordion='content-container')
+                                    +e.content(data-accordion="content").typography
+                                        p Exodus enables consumers to manage many forms of cryptocurrency in a non-custodial interface. With cryptocurrency reaching all-time highs, we are taking action to accelerate our growth. Exodus is already performing well. Going forward, we plan to invest even more in the expansion of our platform, including on product, security, and customer service teams, while accelerating growth by significantly increasing our marketing efforts to attract additional users to our platform. We are excited about our future.
+
+                        +b.UL.accordion
+                            +faq-item('Can I buy or trade shares of Exodus’ Class A common stock right now?')
+                            +faq-item('When will the EXIT tokens I purchased be distributed?')
+                            +faq-item('Who is Securitize?')
+
+                        +b.BUTTON.btn(class="--primary js-continue") Continue
+                    
+
+                    // #2
+                    +b.payment-address.js-payment-address-block
+                        +e.row
+                            +e.content
+                                    
+                                +b.field.js-copy
+                                    label Payment address
+                                    +e.group
+                                        input(type="text" name="username" placeholder="Address").js-copy-input
+                                        +e.icon.js-copy-button.is-pointer
+                                            +icon('copy')
+
+                                +b.BUTTON.btn(class="--primary") Compleate
+                                
+                            +e.qr
+                                img(src="assets/images/qr2.png", alt="")
 
 
 block script

@@ -96,6 +96,7 @@ $(document).ready(function () {
 
   //-
 
+  //-
   $('.field__cross').click(function(){
     $(this).parents('.field').find('input').val('')
     classesCrossField();
@@ -121,18 +122,45 @@ $(document).ready(function () {
 
   }
 
+  //-
 
 
+//
   let $protocolInfo = $('.protocol-info');
 
   if($protocolInfo.length){
     $('body').addClass('is-profile-account')
   }
 
+  //-
+
+
+$('.js-continue').click(function(e){
+  e.preventDefault()
+  
+  if($('.crypto-token > .field input').val() != ''){
+    $('.crypto-token > .field').removeClass('field--error')
+    $('.js-payment-address-block').slideDown();
+    $(this).hide()
+  }else{
+    $('.crypto-token > .field').addClass('field--error')
+  }
+
+
+
+
+
 })
 
+$('.radio-button').click(function(){
+  let val = $(this).children('input').val();
+  $('.crypto-token > .field input').val(val)
+})
+  
 
 
+
+})
 
 
 

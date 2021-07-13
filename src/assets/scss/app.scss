@@ -1446,8 +1446,32 @@ sup {
         border-right: 0;
         padding: 30px 15px;
     }
+
+    .accordion {
+        margin-bottom: 40px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &__title {
+            border: none;
+            padding: 0;
+        }
+        &__content {
+            background: #f1f0f4;
+            color: #413b57;
+            margin-top: 5px;
+            &.typography {
+                line-height: 1.5;
+            }
+        }
+    }
+
     .title {
         margin-bottom: 53px;
+        &--small {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
         @include md-block() {
             margin-bottom: 30px;
         }
@@ -1508,6 +1532,47 @@ sup {
             padding-bottom: 20px;
         }
     }
+}
+.crypto-token-wrapper {
+    margin-bottom: 30px;
+}
+
+.payment-address {
+    padding: 60px 0;
+    @include sm-block() {
+        padding: 0;
+    }
+    &__row {
+        display: flex;
+        @include sm-block() {
+            flex-wrap: wrap;
+        }
+    }
+    .field {
+        margin-bottom: 30px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__qr {
+        @include sm-block() {
+            order: -1;
+            margin-bottom: 30px;
+        }
+    }
+    &__content {
+        flex-grow: 1;
+        margin-right: 100px;
+        @include sm-block() {
+            flex-wrap: wrap;
+            margin-right: 0;
+            width: 100%;
+        }
+    }
+}
+
+.js-payment-address-block {
+    display: none;
 }
 
 .main-layout {
@@ -2635,6 +2700,45 @@ table {
     &__bottom {
         border-top: 2px solid #413b57;
         padding-top: 40px;
+    }
+}
+
+.radio-button {
+    cursor: pointer;
+    input {
+        display: none;
+        &:checked + span {
+            background: $primary-color;
+            color: #fff;
+        }
+    }
+    span {
+        background: #cfceda;
+        border-radius: 4px;
+        line-height: 35px;
+        font-weight: 500;
+        text-transform: uppercase;
+        display: block;
+        padding: 0 25px;
+        font-size: 13px;
+    }
+}
+
+.crypto-token {
+    margin-bottom: 60px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .field {
+        margin-bottom: 20px;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        li {
+            margin: 0 20px 15px 0;
+        }
     }
 }
 
