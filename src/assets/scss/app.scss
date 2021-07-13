@@ -1455,6 +1455,25 @@ sup {
         &__title {
             border: none;
             padding: 0;
+            width: 100%;
+            position: relative;
+            padding-right: 20px;
+            &:after {
+                content: "";
+                width: 8px;
+                height: 15px;
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%) rotate(90deg);
+                right: 0;
+                background: svg-load("../icons/001-right-arrow.svg", fill=#6a657b);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            &:hover {
+                color: $primary-color;
+            }
         }
         &__content {
             background: #f1f0f4;
@@ -1462,6 +1481,16 @@ sup {
             margin-top: 5px;
             &.typography {
                 line-height: 1.5;
+            }
+        }
+        .is-collapsed {
+            .accordion__title {
+                &:after {
+                    transform: translateY(-50%) rotate(-90deg);
+                    background: svg-load("../icons/001-right-arrow.svg", fill=$primary-color);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                }
             }
         }
     }

@@ -135,14 +135,31 @@ $(document).ready(function () {
   //-
 
 
+ gsap.registerPlugin(ScrollToPlugin)
+
 $('.js-continue').click(function(e){
   e.preventDefault()
   
   if($('.crypto-token > .field input').val() != ''){
+    gsap.to(window, 0.2, {
+      scrollTo: {
+        y: '.payment-address',
+        offsetY: 15,
+      },
+      ease: 'power2',
+    })
     $('.crypto-token > .field').removeClass('field--error')
     $('.js-payment-address-block').slideDown();
     $(this).hide()
   }else{
+    gsap.to(window, 0.2, {
+      scrollTo: {
+        y: '.crypto-token > .field',
+        offsetY: 15,
+      },
+      ease: 'power2',
+    })
+
     $('.crypto-token > .field').addClass('field--error')
   }
 
